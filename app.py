@@ -7,6 +7,11 @@ app = Flask(__name__)
 #     budget = fetch_budget()
 #     return render_template('budget.html', budget=budget)
 
+@app.route('/')
+def landing():
+    return render_template('landing_page.html')
+
+
 @app.route('/budgets')
 def budgets():
     # Sample data for testing
