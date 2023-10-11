@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgets</title>
+    <!-- You can link to a CSS file here for styling if needed -->
+</head>
+<body>
+    <h1>Budgets</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Allocated Amount</th>
+                <th>Spent Amount</th>
+                <th>Remaining Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for budget in budgets %}
+            <tr>
+                <td>{{ budget.category }}</td>
+                <td>{{ budget.allocated }}</td>
+                <td>{{ budget.spent }}</td>
+                <td>{{ budget.remaining }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
