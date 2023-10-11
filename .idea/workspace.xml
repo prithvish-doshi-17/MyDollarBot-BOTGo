@@ -53,7 +53,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/code/edit.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/edit.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -108,7 +108,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/code/add.py</url>
+          <url>file://$PROJECT_DIR$/src/add.py</url>
           <line>25</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
