@@ -13,6 +13,7 @@ import add
 import budget
 import category
 import add_recurring
+import add_income
 from datetime import datetime
 from jproperties import Properties
 
@@ -67,7 +68,10 @@ def command_add(message):
 @bot.message_handler(commands=['add_recurring'])
 def command_add_recurring(message):
     add_recurring.run(message, bot)
-    
+
+@bot.message_handler(commands=['add_income'])
+def command_add_income(message):
+    add_income.run(message, bot)
     
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=['history'])
