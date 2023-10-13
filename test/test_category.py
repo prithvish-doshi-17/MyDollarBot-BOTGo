@@ -3,7 +3,7 @@ import json
 import mock
 from mock.mock import patch
 from telebot import types
-from code import category
+from main import category
 from mock import ANY
 
 

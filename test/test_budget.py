@@ -2,7 +2,7 @@ from mock import ANY
 import mock
 from mock.mock import patch
 from telebot import types
-from code import budget
+from main import budget
 
 
 @patch('telebot.telebot')

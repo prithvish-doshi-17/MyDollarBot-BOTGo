@@ -22,5 +22,5 @@ fi
 
 if [ -n "$api_token" ]
 then
-  python3 src/code.py
+  python3 backend/src/main.py
 fi

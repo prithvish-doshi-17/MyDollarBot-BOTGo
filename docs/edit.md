@@ -10,7 +10,7 @@ The code that implements this feature can be found [here](https://github.com/sak
 ## Functions
 
 1. run(message, bot):
-This is the main function used to implement the delete feature. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main code.py function. It gets the details for the expense to be edited from here and passes control onto edit2(m, bot): for further processing.
+This is the main function used to implement the delete feature. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main main.py function. It gets the details for the expense to be edited from here and passes control onto edit2(m, bot): for further processing.
 
 2. edit2(message, bot):
 It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the  run(message, bot): function in the same file. It validates the date provided by the user to see if it's been correctly entered. If not, it throws an error stating the date is incorrect. If the date is correct, it then asks the user what they would like to edit for the expense in question, passing on to def edit3(m, bot): for further processing.

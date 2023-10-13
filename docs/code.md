@@ -1,8 +1,8 @@
-# About MyDollarBot's code.py file
-code.py is the main file from where calls to the corresponding .py files for all features are sent. It contains a number of endpoints which redirect to function calls in the corresponding files. 
+# About MyDollarBot's main.py file
+main.py is the main file from where calls to the corresponding .py files for all features are sent. It contains a number of endpoints which redirect to function calls in the corresponding files. 
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/blob/main/code/code.py)
+The code that implements this feature can be found [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/blob/main/code/main.py)
 
 # Code Description
 ## Functions
@@ -35,4 +35,4 @@ Takes 1 argument **message** which contains the message from the user along with
 Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls delete.py to run to execute the add functionality. Commands used to run this: commands=['display']
 
 # How to run this feature?
-This file contains information on the main code.py file from where all features are run. Instructions to run this are the same as instructions to run the project and can be found in README.md.
+This file contains information on the main main.py file from where all features are run. Instructions to run this are the same as instructions to run the project and can be found in README.md.

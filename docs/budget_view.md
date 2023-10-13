@@ -8,7 +8,7 @@ The code that implements this feature can be found [here](https://github.com/sak
 ## Functions
 
 1. run(message, bot):
-This is the main function used to implement the budget feature. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main code.py function. Depending on whether the user has configured an overall budget or a category-wise budget, this functions checks for either case using the helper module's isOverallBudgetAvailable and isCategoryBudgetAvailable functions and passes control on the respective functions(listed below). If there is no budget configured an exception is raised and the user is given a message indicating that there is no budget configured.
+This is the main function used to implement the budget feature. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main main.py function. Depending on whether the user has configured an overall budget or a category-wise budget, this functions checks for either case using the helper module's isOverallBudgetAvailable and isCategoryBudgetAvailable functions and passes control on the respective functions(listed below). If there is no budget configured an exception is raised and the user is given a message indicating that there is no budget configured.
 
 2. display_overall_budget(message, bot):
 It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the run(message, bot): in the same file. It gets the budget for the user based on their chat ID using the helper module and returns the same through the bot to the Telegram UI.

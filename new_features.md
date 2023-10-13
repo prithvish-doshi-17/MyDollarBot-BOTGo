@@ -4,6 +4,8 @@
 
     *   [ ] Ensure documentation reflects this change
 
+*   [ ] GET TESTS WORKING AGAIN ( they do not run at the moment)&#x20;
+
 *   [ ] Create a GUI page that shows all the budget information at once
 
     *   [ ] Create API endpoints for all functions

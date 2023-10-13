@@ -7,7 +7,7 @@ Created on Wed Sep 29 17:07:37 2021
 """
 
 # import pytest
-# from code.code import start_and_menu_command
+# from main.main import start_and_menu_command
 
 
 def test_start_and_menu_command_func():

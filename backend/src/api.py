@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def landing():
-    return render_template('landing_page.html')
+    return "Hello World!"
 
 
 @app.route('/budgets')
@@ -20,7 +20,7 @@ def budgets():
         {"category": "Rent", "allocated": 1000, "spent": 1000, "remaining": 0},
         {"category": "Entertainment", "allocated": 100, "spent": 50, "remaining": 50}
     ]
-    return render_template('budget.html', budgets=budgets)
+    return budgets
 
 if __name__ == '__main__':
     app.run(debug=True)
