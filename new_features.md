@@ -1,6 +1,6 @@
 # New Planned Features
 
-*   [ ] Reformat the run.sh script into an install script and run script
+*   [x] Reformat the run.sh script into an install script and run script
 
     *   [ ] Ensure documentation reflects this change
 
