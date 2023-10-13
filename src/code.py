@@ -119,7 +119,7 @@ def addUserHistory(chat_id, user_record):
 
 def main():
     try:
-        bot.polling(none_stop=True)
+        bot.polling(non_stop=True)
     except Exception as e:
         logging.exception(str(e))
         time.sleep(3)
