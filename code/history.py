@@ -30,8 +30,8 @@ def run(message, bot):
                 am=ax[1]
                 expense_amount=Dict_expense[am]+ float(av[2])
                 Dict_expense[am]=expense_amount
-                Dict_expense[am]= 0.0 -Dict_expense[am]
-                Dict_profit[am] = Dict_expense[am]
+                Dict_expense[am]= 0.0 - Dict_expense[am]
+                Dict_profit[am] = Dict_profit[am] + Dict_expense[am]
         bot.send_message(chat_id, spend_total_str)
 
         income_total_str = "Here is your income history : \nDATE, CATEGORY, AMOUNT\n----------------------\n"

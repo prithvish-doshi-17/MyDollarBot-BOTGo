@@ -46,9 +46,8 @@ income_or_expense_options = {
 # set of implemented commands and their description
 commands = {
     'menu': 'Display this menu',
-    'add': 'Record/Add a new spending',
+    'add': 'Record/Add a new Spending or Income',
     'add_recurring': 'Add a new recurring expense for future months',
-    'add_income': 'Add a new income',
     'display': 'Show sum of expenditure for the current day/month',
     'estimate': 'Show an estimate of expenditure for the next day/month',
     'history': 'Display spending history',
@@ -118,6 +117,12 @@ def getUserExpenseHistory(chat_id):
         return data['expense_data']
     return None
 
+def getUserHistory(chat_id, selectedType):
+    if selectedType == "Income":
+        return getUserIncomeHistory(chat_id)
+    else:
+        return getUserExpenseHistory(chat_id)
+    
 
 def getUserData(chat_id):
     user_list = read_json()

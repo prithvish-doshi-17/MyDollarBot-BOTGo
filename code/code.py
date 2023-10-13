@@ -13,7 +13,6 @@ import add
 import budget
 import category
 import add_recurring
-import add_income
 from datetime import datetime
 from jproperties import Properties
 
