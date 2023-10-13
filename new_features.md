@@ -1,6 +1,6 @@
 # New Planned Features
 
-*   [X] Reformat the run.sh script into an install script and run script
+*   [ ] Reformat the run.sh script into an install script and run script
 
     *   [ ] Ensure documentation reflects this change
 
@@ -48,6 +48,10 @@
 
     *   [ ] write documentation to deploy to GCP
 
+    *   [ ] Continuous integration solution
+
+*   [ ] Ensure github workflows work and pass
+
 This is a checklist for after the changes above are made. Treat this as a checklist ensuring functionality continues to work
 
 *   Ensure that test files still pass
@@ -55,3 +59,4 @@ This is a checklist for after the changes above are made. Treat this as a checkl
 *   ensure new tests are written
 
 *   Documentation for split up run and install .sh script
+
