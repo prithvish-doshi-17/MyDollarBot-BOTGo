@@ -1,5 +1,3 @@
-pip3 install -r requirements.txt
-
 api_token=$(grep "api_token" user.properties|cut -d'=' -f2)
 
 if [ -z "$api_token" ]
