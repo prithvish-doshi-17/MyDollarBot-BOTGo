@@ -1,15 +1,24 @@
-from flask import Flask, render_template
-# from budget_view import display_overall_budget as fetch_budget
-app = Flask(__name__)
+from flask import Flask
+import json
+from flask import jsonify
 
-# @app.route('/budget')
-# def budget():
-#     budget = fetch_budget()
-#     return render_template('budget.html', budget=budget)
+app = Flask(__name__)
 
 @app.route('/')
 def landing():
     return "Hello World!"
+
+
+
+@app.route('/dummyData')
+def data(): 
+    # Sample data for testing
+    data =  [
+        {"category": "Food", "allocated": 500, "spent": 300, "remaining": 200},
+        {"category": "Rent", "allocated": 1000, "spent": 1000, "remaining": 0},
+        {"category": "Entertainment", "allocated": 100, "spent": 50, "remaining": 50}
+    ]
+    return json.dumps(data)
 
 
 @app.route('/budgets')
@@ -20,7 +29,7 @@ def budgets():
         {"category": "Rent", "allocated": 1000, "spent": 1000, "remaining": 0},
         {"category": "Entertainment", "allocated": 100, "spent": 50, "remaining": 50}
     ]
-    return budgets
+    return jsonify(budgets)
 
 if __name__ == '__main__':
     app.run(debug=True)
