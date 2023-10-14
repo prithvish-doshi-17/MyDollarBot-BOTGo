@@ -113,7 +113,7 @@ def category_delete(message, bot, selectedType):
     if find_to_delete == False:
         bot.send_message(chat_id, 'Cannot find the category QAQ', reply_markup=types.ReplyKeyboardRemove())
     elif find_to_delete:
-        f = open("categories.txt", "w")   
+        f = open(file_name, "w")   
         for category in categories:
             if category == categories[0]:
                 f.write(category)
