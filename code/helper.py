@@ -73,6 +73,8 @@ def read_json():
             with open('expense_record.json') as expense_record:
                 expense_record_data = json.load(expense_record)
             return expense_record_data
+        else:
+            return "error"
 
     except FileNotFoundError:
         print("---------NO RECORDS FOUND---------")

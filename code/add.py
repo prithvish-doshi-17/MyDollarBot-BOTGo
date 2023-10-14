@@ -46,7 +46,10 @@ def post_category_selection(message, bot, selectedType):
             raise Exception("Sorry I don't recognise this category \"{}\"!".format(selected_category))
 
         option[chat_id] = selected_category
-        message = bot.send_message(chat_id, 'How much did you receive through {}? \n(Enter numeric values only)'.format(str(option[chat_id])))
+        if selectedType == "Income" :
+            message = bot.send_message(chat_id, 'How much did you receive through {}? \n(Enter numeric values only)'.format(str(option[chat_id])))
+        else:
+            message = bot.send_message(chat_id, 'How much did you spend on {}? \n(Enter numeric values only)'.format(str(option[chat_id])))
         bot.register_next_step_handler(message, post_amount_input, bot, selectedType, selected_category)
     except Exception as e:
         logging.exception(str(e))
@@ -73,7 +76,7 @@ def post_amount_input(message, bot, selectedType, selected_category):
             helper.write_json(add_user_income_record(chat_id, "{},{},{}".format(date_str, category_str, amount_str)))
         else:
             helper.write_json(add_user_expense_record(chat_id, "{},{},{}".format(date_str, category_str, amount_str)))
-        bot.send_message(chat_id, 'The following amount has been recorded: You have recieved ${} for {} on {}'.format(amount_str, category_str, date_str))
+        bot.send_message(chat_id, 'The following amount has been recorded: You have recieved/spent ${} for {} on {}'.format(amount_str, category_str, date_str))
         # helper.display_remaining_budget(message, bot, selected_category)
     except Exception as e:
         logging.exception(str(e))

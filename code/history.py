@@ -69,4 +69,4 @@ def run(message, bot):
         ##bot.send_message(chat_id, amount)
     except Exception as e:
         logging.exception(str(e))
-        bot.reply_to(message, "Oops!" + str(e))
+        bot.reply_to(message, "No records exist" )
