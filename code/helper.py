@@ -90,6 +90,16 @@ def validate_entered_amount(amount_entered):
     return 0
 
 
+def validate_entered_date(date_entered):
+    if date_entered is None:
+        return datetime.today().strftime(getDateFormat() + ' ' + getTimeFormat())
+    else:
+    	try:
+            return datetime.strftime(datetime.strptime(date_entered, '%m-%d-%Y %H:%M'), getDateFormat()+' '+getTimeFormat())
+    	except ValueError:
+            msg = "Not a valid date: '{0}'.".format(date_entered)
+            raise argparse.ArgumentTypeError(msg)
+
 def validate_entered_duration(duration_entered):
     if duration_entered is None:
         return 0
