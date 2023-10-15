@@ -95,7 +95,7 @@ def validate_entered_date(date_entered):
         return datetime.today().strftime(getDateFormat() + ' ' + getTimeFormat())
     else:
     	try:
-            return datetime.strftime(datetime.strptime(date_entered, '%m-%d-%Y %H:%M'), getDateFormat()+' '+getTimeFormat())
+            return datetime.strftime(date_entered, getDateFormat()+' '+getTimeFormat())
     	except ValueError:
             msg = "Not a valid date: '{0}'.".format(date_entered)
             raise argparse.ArgumentTypeError(msg)
