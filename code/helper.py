@@ -54,7 +54,8 @@ commands = {
     'delete': 'Clear/Erase all your records',
     'edit': 'Edit/Change spending details',
     'budget': 'Add/Update/View/Delete budget',
-    'category': 'Add/Delete/Show custom categories'
+    'category': 'Add/Delete/Show custom categories',
+    'pdf': 'Generate a pdf for Income or History'
 }
 
 dateFormat = '%d-%b-%Y'

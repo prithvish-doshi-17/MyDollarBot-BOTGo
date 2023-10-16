@@ -1,9 +1,8 @@
-from mock import ANY
-import mock
 from mock.mock import patch
 from telebot import types
 from code import budget
-
+from unittest.mock import Mock, ANY
+import mock
 
 @patch('telebot.telebot')
 def test_run(mock_telebot, mocker):
@@ -11,7 +10,7 @@ def test_run(mock_telebot, mocker):
     mc.reply_to.return_value = True
     message = create_message("hello from test run!")
     budget.run(message, mc)
-    assert(mc.reply_to.called_with(ANY, 'Select Operation', ANY))
+    mc.reply_to.assert_called_with(mock.ANY, 'Select Operation', mock.ANY)
 
 
 @patch('telebot.telebot')
