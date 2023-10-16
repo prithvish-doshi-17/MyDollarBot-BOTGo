@@ -42,7 +42,7 @@
 
                 *   [ ] show all custom categories
 
-*   [ ] Create a telegram functionality that opens the GUI webpage
+*   [x] Create a telegram functionality that opens the GUI webpage
 
 *   [ ] Potentially switch to ChatGPT plugin chat rather than the python script, this could mean translating the python to javascript or integrating python with javascript
 
