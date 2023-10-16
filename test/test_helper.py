@@ -171,12 +171,12 @@ def test_getUserHistory_with_none(mocker):
         assert False, 'Result is not None when the file does not exist'
 
 
-# def test_getSpendCategories():
-#     result = helper.getSpendCategories()
-#     if result == helper.spend_categories:
-#         assert True
-#     else:
-#         assert False, 'expected spend categories are not returned'
+def test_getSpendCategories():
+    result = helper.getSpendCategories()
+    if result == helper.spend_categories:
+        assert True
+    else:
+        assert False, 'expected spend categories are not returned'
 
 
 def test_getSpendDisplayOptions():
