@@ -107,11 +107,11 @@ def validate_entered_date(date_entered):
     if date_entered is None:
         return datetime.today().strftime(getDateFormat() + ' ' + getTimeFormat())
     else:
-    	try:
-            return datetime.strftime(date_entered, getDateFormat()+' '+getTimeFormat())
-    	except ValueError:
-            msg = "Not a valid date: '{0}'.".format(date_entered)
-            raise argparse.ArgumentTypeError(msg)
+    	# try:
+        return datetime.strftime(date_entered, getDateFormat() + ' ' + getTimeFormat())
+        # except ValueError:
+        #     msg = "Not a valid date: '{0}'.".format(date_entered)
+        #     raise argparse.ArgumentTypeError(msg)
 
 def validate_entered_duration(duration_entered):
     if duration_entered is None:
@@ -266,17 +266,13 @@ def calculate_total_spendings_for_category(queryResult, cat):
             total = total + float(s[2])
     return total
 
-
-
-
-
 def getSpendCategories():
     with open("categories.txt", "r") as tf:
         spend_categories = tf.read().split(',')
     return spend_categories
 
 def getIncomeCategories():
-    with open("income_categories.txt","r")as tf:
+    with open("income_categories.txt","r") as tf:
         income_categories = tf.read().split(',')
     return income_categories
 
