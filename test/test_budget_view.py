@@ -5,7 +5,6 @@ from mock.mock import patch
 from telebot import types
 from unittest.mock import Mock, ANY
 
-
 @patch('telebot.telebot')
 def test_display_overall_budget(mock_telebot, mocker):
     mc = mock_telebot.return_value

@@ -2,7 +2,6 @@ from mock.mock import patch
 from telebot import types
 from code import budget
 from unittest.mock import Mock, ANY
-import mock
 
 @patch('telebot.telebot')
 def test_run(mock_telebot, mocker):

@@ -58,6 +58,13 @@ commands = {
     'pdf': 'Generate a pdf for Income or History'
 }
 
+#exchange_rates = {
+#    'USD': 1.0,  # Base currency
+ #   'EUR': 0.85,  # Example: 1 USD = 0.85 EUR
+  #  'GBP': 0.75,  # Example: 1 USD = 0.75 GBP
+    # Add more currencies and exchange rates as needed
+#}
+
 dateFormat = '%d-%b-%Y'
 timeFormat = '%H:%M'
 monthFormat = '%b-%Y'
@@ -95,6 +102,16 @@ def validate_entered_amount(amount_entered):
             return str(amount)
     return 0
 
+
+def validate_entered_date(date_entered):
+    if date_entered is None:
+        return datetime.today().strftime(getDateFormat() + ' ' + getTimeFormat())
+    else:
+    	try:
+            return datetime.strftime(date_entered, getDateFormat()+' '+getTimeFormat())
+    	except ValueError:
+            msg = "Not a valid date: '{0}'.".format(date_entered)
+            raise argparse.ArgumentTypeError(msg)
 
 def validate_entered_duration(duration_entered):
     if duration_entered is None:
@@ -250,6 +267,9 @@ def calculate_total_spendings_for_category(queryResult, cat):
     return total
 
 
+
+
+
 def getSpendCategories():
     with open("categories.txt", "r") as tf:
         spend_categories = tf.read().split(',')
@@ -268,6 +288,12 @@ def getCategories(selectedType):
         spend_categories = getSpendCategories()
         return spend_categories
 
+    
+def getCurrencyValues():
+    with open("currency.txt", "r") as tf:
+        currency_values = tf.read().split(',')
+    return currency_values
+ 
 def getplot():
     return plot
 

@@ -6,7 +6,13 @@ from dateutil.relativedelta import relativedelta
 
 
 option = {}
-
+option = {}
+exchange_rates = {
+    'USD': 1.0,
+    'Euro': 0.86,  # Replace with the actual exchange rates
+    'INR': 74.22,   # Replace with the actual exchange rates
+    
+}
 
 def run(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
