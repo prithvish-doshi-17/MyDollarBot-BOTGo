@@ -116,7 +116,7 @@ def test_display_overall_budget_by_text(mock_telebot, mocker):
     mocker.patch.object(display, 'helper')
     display.helper.getDateFormat.return_value = '%d-%b-%Y'
     display.helper.getMonthFormat.return_value = '%b-%Y'
-    history = MOCK_USER_DATA["1075979006"]["data"]
+    history = MOCK_USER_DATA["1075979006"]["expense_data"]
     budget_data = MOCK_USER_DATA["1075979006"]["budget"]["overall"]
     message = display.display_budget_by_text(history, budget_data)
     assert message == "Overall Budget is: 1000.0\n----------------------\nCurrent remaining budget is 812.69\n"
@@ -128,7 +128,7 @@ def test_display_category_budget_by_text(mock_telebot, mocker):
     mocker.patch.object(display, 'helper')
     display.helper.getDateFormat.return_value = '%d-%b-%Y'
     display.helper.getMonthFormat.return_value = '%b-%Y'
-    history = MOCK_USER_DATA["1075979007"]["data"]
+    history = MOCK_USER_DATA["1075979007"]["expense_data"]
     budget_data = MOCK_USER_DATA["1075979007"]["budget"]["category"]
     message = display.display_budget_by_text(history, budget_data)
     print(message)

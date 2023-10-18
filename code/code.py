@@ -13,6 +13,7 @@ import add
 import budget
 import category
 import add_recurring
+import pdf
 from datetime import datetime
 from jproperties import Properties
 
@@ -52,7 +53,7 @@ def start_and_menu_command(m):
     global user_list
     chat_id = m.chat.id
 
-    text_intro = "Welcome to MyDollarBot - a simple solution to track your expenses and manage them ! \n Please select the options from below for me to assist you with: \n\n"
+    text_intro = "Welcome to MyExpenseBot - a simple solution to track your expenses, incomes and manage them ! \n Please select the options from below for me to assist you with: \n\n"
     commands = helper.getCommands()
     for c in commands:  # generate help text out of the commands dictionary defined at the top
         text_intro += "/" + c + ": "
@@ -72,7 +73,10 @@ def command_add(message):
 @bot.message_handler(commands=['add_recurring'])
 def command_add_recurring(message):
     add_recurring.run(message, bot)
-    
+
+@bot.message_handler(commands=['add_income'])
+def command_add_income(message):
+    add_income.run(message, bot)
     
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=['history'])
@@ -112,6 +116,9 @@ def command_budget(message):
 def command_category(message):
     category.run(message, bot)
 
+@bot.message_handler(commands=['pdf'])
+def command_category(message):
+    pdf.run(message, bot)
 
 # not used
 def addUserHistory(chat_id, user_record):

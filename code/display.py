@@ -10,7 +10,7 @@ from datetime import datetime
 def run(message, bot):
     helper.read_json()
     chat_id = message.chat.id
-    history = helper.getUserHistory(chat_id)
+    history = helper.getUserExpenseHistory(chat_id)
     if history is None:
         bot.send_message(chat_id, "Sorry, there are no records of the spending!")
     else:
@@ -34,7 +34,7 @@ def display_total(message, bot):
         if DayWeekMonth not in helper.getSpendDisplayOptions():
             raise Exception("Sorry I can't show spendings for \"{}\"!".format(DayWeekMonth))
 
-        history = helper.getUserHistory(chat_id)
+        history = helper.getUserExpenseHistory(chat_id)
         if history is None:
             raise Exception("Oops! Looks like you do not have any spending records!")
 
