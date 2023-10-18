@@ -1,6 +1,10 @@
 from flask import Flask
 import json
-from flask import jsonify
+from flask import jsonify, request
+import helper
+from add import add_user_record
+from datetime import datetime
+import budget_view
 
 app = Flask(__name__)
 
@@ -49,13 +53,16 @@ def data():
 
 @app.route('/budgets')
 def budgets():
-    # Sample data for testing
-    budgets = [
-        {"category": "Food", "allocated": 500, "spent": 300, "remaining": 200},
-        {"category": "Rent", "allocated": 1000, "spent": 1000, "remaining": 0},
-        {"category": "Entertainment", "allocated": 100, "spent": 50, "remaining": 50}
-    ]
+    # # Sample data for testing
+    # budgets = [
+    #     {"category": "Food", "allocated": 500, "spent": 300, "remaining": 200},
+    #     {"category": "Rent", "allocated": 1000, "spent": 1000, "remaining": 0},
+    #     {"category": "Entertainment", "allocated": 100, "spent": 50, "remaining": 50}
+    # ]
+
+
     return jsonify(budgets)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
