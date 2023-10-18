@@ -51,6 +51,13 @@ commands = {
     'category': 'Add/Delete/Show custom categories'
 }
 
+#exchange_rates = {
+#    'USD': 1.0,  # Base currency
+ #   'EUR': 0.85,  # Example: 1 USD = 0.85 EUR
+  #  'GBP': 0.75,  # Example: 1 USD = 0.75 GBP
+    # Add more currencies and exchange rates as needed
+#}
+
 dateFormat = '%d-%b-%Y'
 timeFormat = '%H:%M'
 monthFormat = '%b-%Y'
@@ -242,10 +249,19 @@ def calculate_total_spendings_for_category(queryResult, cat):
     return total
 
 
+
+
+
 def getSpendCategories():
     with open("categories.txt", "r") as tf:
         spend_categories = tf.read().split(',')
     return spend_categories
+    
+def getCurrencyValues():
+    with open("currency.txt", "r") as tf:
+        currency_values = tf.read().split(',')
+    return currency_values
+ 
 def getplot():
     return plot
 
@@ -291,3 +307,4 @@ def getUpdateOptions():
 
 def getCategoryOptions():
     return category_options
+    

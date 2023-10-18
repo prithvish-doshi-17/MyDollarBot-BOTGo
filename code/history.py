@@ -1,7 +1,7 @@
 import helper
 import logging
 import matplotlib.pyplot as plt
-
+from datetime import datetime
 def run(message, bot):
     try:
         helper.read_json()
@@ -26,7 +26,52 @@ def run(message, bot):
                 amount=Dict[am]+ float(av[2])
                 Dict[am]=amount
         bot.send_message(chat_id, spend_total_str)
-       
+        selected_duration = "Month"
+
+        # Collect and process data
+        category_expenses = {}
+        duration_expenses = {}
+        
+        for record in user_history:
+            date, category, amount = record.split(",")
+            date_obj = datetime.strptime(date, "%d-%b-%Y %H:%M")
+            
+            # Calculate expenses for the selected duration
+            if selected_duration == "Day":
+                duration_key = date_obj.strftime("%d-%b-%Y")
+            elif selected_duration == "Week":
+                duration_key = date_obj.strftime("%Y-%U")
+            elif selected_duration == "Month":
+                duration_key = date_obj.strftime("%Y-%b")
+
+            if duration_key in duration_expenses:
+                duration_expenses[duration_key] += float(amount)
+            else:
+                duration_expenses[duration_key] = float(amount)
+            
+            # Calculate category-wise expenses
+            if category in category_expenses:
+                category_expenses[category] += float(amount)
+            else:
+                category_expenses[category] = float(amount)
+        
+        # Sort category-wise and duration-wise expenses in descending order
+        sorted_category_expenses = sorted(category_expenses.items(), key=lambda x: x[1], reverse=True)
+        sorted_duration_expenses = sorted(duration_expenses.items(), key=lambda x: x[1], reverse=True)
+        
+        # Prepare and send the summary messages
+        bot.send_message(chat_id, f"Summary of Expenses ({selected_duration}-wise) in Descending Order:\n")
+        
+        # Display category-wise expenses
+        bot.send_message(chat_id, "Category-Wise Expenses:")
+        for category, total in sorted_category_expenses:
+            bot.send_message(chat_id, f"{category}: ${total:.2f}")
+
+        # Display duration-wise expenses
+        bot.send_message(chat_id, f"{selected_duration}-Wise Expenses:")
+        for duration, total in sorted_duration_expenses:
+            bot.send_message(chat_id, f"{duration}: ${total:.2f}")
+        
        ## bot.send_message(chat_id, Dict[am])
         plt.clf()
         width=1.0
