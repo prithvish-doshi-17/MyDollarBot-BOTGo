@@ -5,4 +5,5 @@ flake8
 matplotlib
 coverage
 pytest-mock
-telegram_bot_calendar
+python-telegram-bot
+python-telegram-bot-calendar

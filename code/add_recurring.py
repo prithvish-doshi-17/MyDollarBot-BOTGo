@@ -6,13 +6,6 @@ from dateutil.relativedelta import relativedelta
 
 
 option = {}
-option = {}
-exchange_rates = {
-    'USD': 1.0,
-    'Euro': 0.86,  # Replace with the actual exchange rates
-    'INR': 74.22,   # Replace with the actual exchange rates
-    
-}
 
 def run(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
@@ -51,10 +44,13 @@ def post_category_selection(message, bot, selectedType):
         if selected_category not in categories:
             bot.send_message(chat_id, 'Invalid', reply_markup=types.ReplyKeyboardRemove())
             raise Exception("Sorry I don't recognise this category \"{}\"!".format(selected_category))
-
-        option[chat_id] = selected_category
-        message = bot.send_message(chat_id, 'How much will you recieve/spend on {}? \n(Enter numeric values only)'.format(str(option[chat_id])))
-        bot.register_next_step_handler(message, post_amount_input, bot, selectedType, selected_category)
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        options = helper.getCurrencyOptions()
+        markup.row_width = 2
+        for c in options.values():
+            markup.add(c)
+        msg = bot.reply_to(message, 'Select Currency', reply_markup=markup)
+        bot.register_next_step_handler(message, post_currency_selection, bot, selectedType, selected_category)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no! ' + str(e))
@@ -66,8 +62,26 @@ def post_category_selection(message, bot, selectedType):
         bot.send_message(chat_id, 'Please select a menu option from below:')
         bot.send_message(chat_id, display_text)
 
+def post_currency_selection(message, bot, selectedType, selected_category):
+    try:
+        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+        chat_id = message.chat.id
+        selectedCurrency = message.text
+        currencyOptions = helper.getCurrencyOptions()
+        if selectedCurrency not in currencyOptions:
+            bot.send_message(chat_id, 'Invalid', reply_markup=types.ReplyKeyboardRemove())
+            raise Exception("Sorry I don't recognise this currency \"{}\"!".format(selectedCurrency))
+        if selectedType == "Income" :
+            message = bot.send_message(chat_id, 'How much did you receive through {}? \n(Enter numeric values only)'.format(str(selected_category)))
+        else:
+            message = bot.send_message(chat_id, 'How much did you spend on {}? \n(Enter numeric values only)'.format(str(selected_category)))
+        bot.register_next_step_handler(message, post_amount_input, bot, selectedType, selected_category, selectedCurrency)
+    except Exception as e:
+        # print("hit exception")
+        helper.throw_exception(e, message, bot, logging)
 
-def post_amount_input(message, bot, selectedType, selected_category):
+
+def post_amount_input(message, bot, selectedType, selected_category, selectedCurrency):
     try:
         chat_id = message.chat.id
         amount_entered = message.text
@@ -76,30 +90,36 @@ def post_amount_input(message, bot, selectedType, selected_category):
             raise Exception("Spent amount has to be a non-zero number.")
         
         message = bot.send_message(chat_id, 'For how many months in the future will the expense/income be there? \n(Enter integer values only)'.format(str(option[chat_id])))
-        bot.register_next_step_handler(message, post_duration_input, bot, selectedType, selected_category, amount_value)
+        bot.register_next_step_handler(message, post_duration_input, bot, selectedType, selected_category, selectedCurrency, amount_value)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no. ' + str(e))
 
 
-def post_duration_input(message, bot, selectedType, selected_category, amount_value):
+def post_duration_input(message, bot, selectedType, selected_category, selectedCurrency, amount_value):
     try:
         chat_id = message.chat.id
         duration_entered = message.text
         duration_value = helper.validate_entered_duration(duration_entered)
         if duration_value == 0:
             raise Exception("Duration has to be a non-zero integer.")
+        chat_id = message.chat.id
+        if selectedCurrency == 'Euro':
+            actual_value = float(amount_value) * 1.05
+        elif selectedCurrency == 'INR':
+            actual_value = float(amount_value) * 0.012
+        else:
+            actual_value = float(amount_value) * 1.0
                 
         for i in range(int(duration_value)):
             date_of_entry = (datetime.today() + relativedelta(months=+i)).strftime(helper.getDateFormat() + ' ' + helper.getTimeFormat())
-            date_str, category_str, amount_str = str(date_of_entry), str(option[chat_id]), str(amount_value)
+            date_str, category_str, amount_str, convert_value_str, currency_str = str(date_of_entry), str(selected_category), str(amount_value), str(actual_value), str(selectedCurrency)
             if selectedType=="Income":
-                helper.write_json(add_user_income_record(chat_id, "{},{},{}".format(date_str, category_str, amount_str)))
+                helper.write_json(add_user_income_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
             else:
-                helper.write_json(add_user_expense_record(chat_id, "{},{},{}".format(date_str, category_str, amount_str)))
+                helper.write_json(add_user_expense_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
         
-        bot.send_message(chat_id, 'The following expenditure has been recorded: You have spent ${} for {} for the next {} months'.format(amount_str, category_str, duration_value))
-    
+        bot.send_message(chat_id, 'The following expenditure has been recorded: You have spent/received ${} for {} for the next {} months. Actual currency is {} and value is {}\n'.format(convert_value_str, category_str, duration_value, currency_str,amount_str))
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no. ' + str(e))
