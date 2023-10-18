@@ -4,6 +4,7 @@ from mock.mock import patch
 from telebot import types
 from code import add
 from mock import ANY
+from unittest.mock import Mock, ANY
 
 
 dateFormat = '%d-%b-%Y'
