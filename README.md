@@ -1,8 +1,8 @@
-# 💰 TrackMyDollar V2.0 - Budget On The Go(BOTGo) 💰
+# 💰 TrackMyDollar V3.0 - MyExpenseBot 💰
 
 Link to delta of Phase 3 - [https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing](https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing)
 
-This video shows only the new features and enhancement of some older features. All the other features from phase 2 are working as it is.
+This video shows only the new features and enhancement of some older features. All the other features from phase 3 are working as it is.
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
@@ -23,34 +23,35 @@ This video shows only the new features and enhancement of some older features. A
 ![Fork](https://img.shields.io/github/forks/deekay2310/MyDollarBot?style=social)
 <hr>
 
-## About TrackMyDollar
+## About MyExpenseBot(Based on Phase 2 and 3)
 
-TrackMyDollar is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle 
+MyExpenseBot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle 
 With simple commands, this bot allows you to:
 - Add/Record a new spending
 - Show the sum of your expenditure for the current day/month
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
-
-
-## What's new? (From Phase 2 to Phase 3)
-
-- Recurring expense:
+-Recurring expense:
   Add a recurring expense that adds a certain amount every month to the user's spending, for any given category.
-  
-- Custom category:
+-Custom category:
   User can add a new category and delete an existing category as per the needs
-  
-- Budgeting:
+-Budgeting:
   User can see the budget value for the total expense and/or for each of the existing categories in the /display function
-  
-- Better visualization:
+-Better visualization:
   Added pie charts, bar graphs with and without budget lines for the user to have a look at the spending history in a better manner
   Added bar graph in the /history command to see spending across different categories
-  User can see the daily and monthly expenses for spending history
-  
-- Deployment on GCP (the bot is now available, and can be used on any device by searching for @testforbudgetmanagerbot on Telegram)
+  User can see the daily and monthly expenses for spending history.
+-Deployment on GCP (the bot is now available, and can be used on any device by searching for @testforbudgetmanagerbot on Telegram) 
+
+## What's new? (From Phase 3 to Phase 4)
+The new design of the Telegram Bot resolves the issues of the Phase 3
+-Income Feature and Cash Flow graphs- Users can add income of the user as the telegram bot is used for storing the daily expenses. Graphs are implemented for tracking income.
+-Pdf Feature- User can record his/her income and daily expenses in a pdf format.
+-Add Calender Feature- Users can store the input date of their income and expenses
+-Edit Calender Feature-Users can edit the input date entered in future.
+-Display summary of expenses (category-wise, duration-wise) in sorted (descending) order.
+-Support for other currencies- users can choose their choice of currency for conversion(edit/update in the history) for any transaction.
 
 ## What more can be done?
 Please refer to the issue list available [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues) to see what more can be done to make MyDollarBot better. Please refer to the MyDollarBot project present [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/projects) to have a look at the tasks to be done, tasks currently in progress and tasks already done.
@@ -116,8 +117,9 @@ You can download and install the Telegram desktop application for your system fr
 
 <hr>
 <p>Title:'Track My Dollar'</p>
-<p>Version: '3.1'</p>
+<p>Version: '4.1'</p>
 <p>Description: 'An easy to use Telegram Bot to track everyday expenses'</p>
+<p>Authors(Iteration 4):'Anvitha, Nainisha, Vaishnavi'</p>
 <p>Authors(Iteration 3):'Vraj, Alex, Leo, Prithvish, Seeya'</p>
 <p>Authors(Iteration 2):'Athithya, Subramanian, Ashok, Zunaid, Rithik'</p>
 <p>Authors(Iteration 1):'Dev, Prakruthi, Radhika, Rohan, Sunidhi'</p>
