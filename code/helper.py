@@ -43,6 +43,12 @@ income_or_expense_options = {
     'expense': 'Expense'
 }
 
+currency_options = {
+    'Euro': 'Euro',
+    'USD': 'USD',
+    'INR': 'INR'
+}
+
 # set of implemented commands and their description
 commands = {
     'menu': 'Display this menu',
@@ -58,12 +64,6 @@ commands = {
     'pdf': 'Generate a pdf for Income or History'
 }
 
-#exchange_rates = {
-#    'USD': 1.0,  # Base currency
- #   'EUR': 0.85,  # Example: 1 USD = 0.85 EUR
-  #  'GBP': 0.75,  # Example: 1 USD = 0.75 GBP
-    # Add more currencies and exchange rates as needed
-#}
 
 dateFormat = '%d-%b-%Y'
 timeFormat = '%H:%M'
@@ -284,12 +284,6 @@ def getCategories(selectedType):
         spend_categories = getSpendCategories()
         return spend_categories
 
-    
-def getCurrencyValues():
-    with open("currency.txt", "r") as tf:
-        currency_values = tf.read().split(',')
-    return currency_values
- 
 def getplot():
     return plot
 
@@ -338,3 +332,6 @@ def getCategoryOptions():
 
 def getIncomeOrExpense():
     return income_or_expense_options
+
+def getCurrencyOptions():
+    return currency_options
