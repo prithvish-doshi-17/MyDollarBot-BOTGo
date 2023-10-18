@@ -1,11 +1,8 @@
 from flask import Flask
-import json
 from flask import jsonify, request
-import helper
-from add import add_user_record
-from datetime import datetime
-import budget_view
+# from budget_view import budget
 import telebot
+from collections import namedtuple
 import logging
 from add import run, add_user_record, post_category_selection, post_amount_input
 
@@ -26,11 +23,21 @@ option = {}
 
 app = Flask(__name__)
 
+# functions for creating an artificial message so that its still synced with the bot
+def dict_to_obj(data):
+    return namedtuple('GenericDict', data.keys())(**data)
+
+def create_message(userid, category):
+    # Simulate a message object for the run function
+    chat = {'id': userid}
+    chat = dict_to_obj(chat)
+    message = {'chat': chat, 'message_id': 1, 'text': category}
+    message = dict_to_obj(message)
+    return message
+
 @app.route('/')
 def landing():
     return "Hello World!"
-
-
 
 @app.route('/dummyData')
 def data(): 
@@ -78,23 +85,29 @@ def budgets():
     #     {"category": "Entertainment", "allocated": 100, "spent": 50, "remaining": 50}
     # ]
 
-
     return jsonify(budgets)
+
+
 
 @app.route('/add', methods=['POST'])
 def add_expenditure():
+    print(request.json)
     user_id = request.json.get('user_id')
-    # Simulate a message object for the run function
-    message = {"chat": {"id": user_id}}
+
+    # create the message 
+    message = create_message(user_id, "")
+
+    print(message) 
     categories = run(message, bot)  # We can pass None for the bot parameter as it's not used here
     return jsonify({"categories": categories})
+
 
 @app.route('/select-category', methods=['POST'])
 def select_category():
     user_id = request.json.get('user_id')
     selected_category = request.json.get('category')
     # Simulate a message object for the post_category_selection function
-    message = {"chat": {"id": user_id}, "text": selected_category}
+    message = create_message(user_id, selected_category)
     response = post_category_selection(message, bot)
     return jsonify(response)
 
@@ -104,7 +117,9 @@ def input_amount():
     selected_category = request.json.get('category')
     amount = request.json.get('amount')
     # Simulate a message object for the post_amount_input function
-    message = {"chat": {"id": user_id}, "text": amount}
+    # message = {"chat": {"id": user_id}, "text": amount}
+
+    message = create_message(user_id, amount)
     response = post_amount_input(message, bot, selected_category)
     return jsonify(response)
 
