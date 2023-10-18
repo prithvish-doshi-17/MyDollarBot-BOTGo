@@ -39,6 +39,11 @@ def listener(user_requests):
 
 bot.set_update_listener(listener)
 
+    
+@bot.callback_query_handler(func=lambda call: call.data.startswith('date_'))
+def handle_calendar_selection(call):
+    selected_date = call.data.split('_')[1]
+    bot.send_message(call.message.chat.id, f"You selected the date: {selected_date}")
 
 # defines how the /start and /help commands have to be handled/processed
 @bot.message_handler(commands=['start', 'menu'])
