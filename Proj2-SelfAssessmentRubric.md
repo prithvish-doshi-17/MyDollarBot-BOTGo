@@ -11,15 +11,15 @@
 |.5	| Number of commits: by different people| https://github.com/nainisha-b/MyExpenseBot/graphs/commit-activity	|
 |1	| issues are being addresssed| https://github.com/nainisha-b/MyExpenseBot/issues  |
 |.5	| issues are discussed before they are closed|	Each issue updated with the discussion before closing and comments added ->https://github.com/nainisha-b/MyExpenseBot/issues |
-|.5	| Use of syntax checkers.| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml|
-|1	| Issues reports: |https://github.com/sak007/MyDollarBot-BOTGo/issues |
-|.5	| Use of code formatters.| config files in GH showing your this formatter's config| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
-|.5	| Use of style checkers	config files in GH showing your config| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml|
+|.5	| Use of syntax checkers.| Use of Flake8, updated in travis.yml -> https://github.com/nainisha-b/MyExpenseBot/blob/test1/.travis.yml|
+|1	| Issues reports: | https://github.com/nainisha-b/MyExpenseBot/issues|
+|.5	| Use of code formatters.| config files in GH showing your this formatter's config| Use of Flake8, updated in travis.yml -> https://github.com/nainisha-b/MyExpenseBot/blob/test1/.travis.yml |
+|.5	| Use of style checkers	config files in GH showing your config| Use of Flake8, updated in travis.yml -> https://github.com/nainisha-b/MyExpenseBot/blob/test1/.travis.yml|
 |.5	| Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.|	Added in Readme.md -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/README.md|
 |.5	| Test cases exist | 110 test cases with coverage > 80% for each file -> https://github.com/sak007/MyDollarBot-BOTGo/tree/main/test|
-|.5	| Use of code coverage	| https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
-|.5	| other automated analysis tools | https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
-|.5	| Test cases:.a large proportion of the issues related to handling failing cases. (if a test case fails, open an issue and fix it| https://github.com/sak007/MyDollarBot-BOTGo/issues | 
+|.5	| Use of code coverage	| https://github.com/nainisha-b/MyExpenseBot/blob/test1/.travis.yml |
+|.5	| other automated analysis tools | https://github.com/nainisha-b/MyExpenseBot/blob/test1/.travis.yml|
+|.5	| Test cases:.a large proportion of the issues related to handling failing cases. (if a test case fails, open an issue and fix it| https://github.com/nainisha-b/MyExpenseBot/issues | 
 |.5	| Test cases are routinely executed	| https://app.codecov.io/gh/sak007/MyDollarBot-BOTGo |
 |1	| Documentation describing how this version improves on the older version| Updated README.md to show the Delta -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/README.md	|
 |3	| This version is a little(1), some(2), much(3) improved on the last version. | Tutor's assessment |
