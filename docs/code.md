@@ -1,8 +1,8 @@
-# About MyDollarBot's code.py file
+# About MyExpenseBot code.py file
 code.py is the main file from where calls to the corresponding .py files for all features are sent. It contains a number of endpoints which redirect to function calls in the corresponding files. 
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/blob/main/code/code.py)
+The code that implements this feature can be found [here](https://github.com/nainisha-b/MyExpenseBot/blob/test1/code/code.py)
 
 # Code Description
 ## Functions
@@ -33,6 +33,18 @@ Takes 1 argument **message** which contains the message from the user along with
 
 9. command_delete(message):
 Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls delete.py to run to execute the add functionality. Commands used to run this: commands=['display']
+
+10. command_estimate(message):
+Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls estimate.py to run to execute the add functionality. Commands used to run this: commands=['estimate']
+
+11. command_budget(message):
+Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls budget.py to run to execute the add functionality. Commands used to run this: commands=['budget']
+
+12. command_category(message):
+Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls category.py to run to execute the add functionality. Commands used to run this: commands=['category']
+
+13.command_category(message):
+Takes 1 argument **message** which contains the message from the user along with the chat ID of the user chat. It then calls pdf.py to run to execute the add functionality. Commands used to run this: commands=['pdf']
 
 # How to run this feature?
 This file contains information on the main code.py file from where all features are run. Instructions to run this are the same as instructions to run the project and can be found in README.md.
