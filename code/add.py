@@ -119,6 +119,7 @@ def post_date_input(message, bot, date_entered):
         chat_id = message.chat.id
         amount = float(selectedAm[chat_id])
         currency = str(selectedCurr[chat_id])
+        formatted_date = date_entered.strftime('%d-%b-%y')
         if currency == 'Euro':
             actual_value = float(amount) * 1.05
         elif currency == 'INR':
@@ -126,7 +127,7 @@ def post_date_input(message, bot, date_entered):
         else:
             actual_value = float(amount) * 1.0
         amountval = round(actual_value, 2)
-        date_str, category_str, amount_str, convert_value_str, currency_str = str(date_entered), str(selectedCat[chat_id]), str(amountval), str(actual_value), str(selectedCurr[chat_id])
+        date_str, category_str, amount_str, convert_value_str, currency_str = str(formatted_date), str(selectedCat[chat_id]), str(amount), str(amountval), str(selectedCurr[chat_id])
         if str(selectedTyp[chat_id])=="Income":
             helper.write_json(add_user_income_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
         else:
