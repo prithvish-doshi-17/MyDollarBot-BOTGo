@@ -16,9 +16,9 @@ def run(message, bot):
         income_amount=0.0
         expense_amount=0.0
         am=""
-        Dict_income = {'Jan': 0.0,'Feb': 0.0,'Mar': 0.0,'Apr': 0.0,'May': 0.0, 'Jun': 0.0, 'Jul': 0.0, 'Sep': 0.0, 'Oct': 0.0, 'Nov': 0.0, 'Dec': 0.0}
-        Dict_expense = {'Jan': 0.0,'Feb': 0.0,'Mar': 0.0,'Apr': 0.0,'May': 0.0, 'Jun': 0.0, 'Jul': 0.0, 'Sep': 0.0, 'Oct': 0.0, 'Nov': 0.0, 'Dec': 0.0}
-        Dict_profit = {'Jan': 0.0,'Feb': 0.0,'Mar': 0.0,'Apr': 0.0,'May': 0.0, 'Jun': 0.0, 'Jul': 0.0, 'Sep': 0.0, 'Oct': 0.0, 'Nov': 0.0, 'Dec': 0.0}
+        Dict_income = {'Jan': 0.0,'Feb': 0.0,'Mar': 0.0,'Apr': 0.0,'May': 0.0, 'Jun': 0.0, 'Jul': 0.0, 'Aug': 0.0,'Sep': 0.0, 'Oct': 0.0, 'Nov': 0.0, 'Dec': 0.0}
+        Dict_expense = {'Jan': 0.0,'Feb': 0.0,'Mar': 0.0,'Apr': 0.0,'May': 0.0, 'Jun': 0.0, 'Jul': 0.0, 'Aug': 0.0,'Sep': 0.0, 'Oct': 0.0, 'Nov': 0.0, 'Dec': 0.0}
+        Dict_profit = {'Jan': 0.0,'Feb': 0.0,'Mar': 0.0,'Apr': 0.0,'May': 0.0, 'Jun': 0.0, 'Jul': 0.0, 'Aug': 0.0,'Sep': 0.0, 'Oct': 0.0, 'Nov': 0.0, 'Dec': 0.0}
         if user_income_history and user_expense_history is None:
             raise Exception("Sorry! No records found!")
         spend_total_str = "Here is your spending history : \nDATE, CATEGORY, AMOUNT\n----------------------\n"
@@ -49,50 +49,6 @@ def run(message, bot):
                 Dict_income[am] = income_amount
                 Dict_profit[am] = Dict_profit[am] + Dict_income[am]
         bot.send_message(chat_id, income_total_str)
-       
-        selected_duration = ""
-        category_expenses = {}
-        duration_expenses = {}
-        
-        for record in user_expense_history:
-            date, category, amount = record.split(",")
-            date_obj = datetime.strptime(date, "%d-%b-%Y %H:%M")
-            
-            # Calculate expenses for the selected duration
-            if selected_duration == "Day":
-                duration_key = date_obj.strftime("%d-%b-%Y")
-            elif selected_duration == "Week":
-                duration_key = date_obj.strftime("%Y-%U")
-            elif selected_duration == "Month":
-                duration_key = date_obj.strftime("%Y-%b")
-
-            if duration_key in duration_expenses:
-                duration_expenses[duration_key] += float(amount)
-            else:
-                duration_expenses[duration_key] = float(amount)
-            
-            # Calculate category-wise expenses
-            if category in category_expenses:
-                category_expenses[category] += float(amount)
-            else:
-                category_expenses[category] = float(amount)
-        
-        # Sort category-wise and duration-wise expenses in descending order
-        sorted_category_expenses = sorted(category_expenses.items(), key=lambda x: x[1], reverse=True)
-        sorted_duration_expenses = sorted(duration_expenses.items(), key=lambda x: x[1], reverse=True)
-        
-        # Prepare and send the summary messages
-        bot.send_message(chat_id, f"Summary of Expenses ({selected_duration}-wise) in Descending Order:\n")
-        
-        # Display category-wise expenses
-        bot.send_message(chat_id, "Category-Wise Expenses:")
-        for category, total in sorted_category_expenses:
-            bot.send_message(chat_id, f"{category}: ${total:.2f}")
-
-        # Display duration-wise expenses
-        bot.send_message(chat_id, f"{selected_duration}-Wise Expenses:")
-        for duration, total in sorted_duration_expenses:
-            bot.send_message(chat_id, f"{duration}: ${total:.2f}")
         
        # bot.send_message(chat_id, Dict[am])
         plt.clf()
@@ -113,7 +69,10 @@ def run(message, bot):
         plt.savefig('histo_expense.png')
         bot.send_photo(chat_id, photo=open('histo_expense.png','rb'))
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-        options = {"Yes", "No"}
+        options = {
+            'Yes': 'Yes',
+            'No': 'No'
+        }
         markup.row_width = 2
         for c in options.values():
             markup.add(c)
@@ -147,21 +106,20 @@ def post_type_selection(message, bot):
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         chat_id = message.chat.id
         selectedType = message.text
-        selected_duration = ""
+        selected_duration = "Month"
         category_expenses = {}
         duration_expenses = {}
         user_history = helper.getUserHistory(chat_id, selectedType)
         for record in user_history:
-            date, category, amount = record.split(",")
-            date_obj = datetime.strptime(date, "%d-%b-%Y %H:%M")
-            
+            date, category, amount, curr, actualVal = record.split(",")
+            date_obj = datetime.strptime(date, "%d-%b-%y")
             # Calculate expenses for the selected duration
             if selected_duration == "Day":
-                duration_key = date_obj.strftime("%d-%b-%Y")
+                duration_key = date_obj.strftime("%d-%b-%y")
             elif selected_duration == "Week":
                 duration_key = date_obj.strftime("%Y-%U")
             elif selected_duration == "Month":
-                duration_key = date_obj.strftime("%Y-%b")
+                duration_key = date_obj.strftime("%y-%b")
 
             if duration_key in duration_expenses:
                 duration_expenses[duration_key] += float(amount)
@@ -179,15 +137,15 @@ def post_type_selection(message, bot):
         sorted_duration_expenses = sorted(duration_expenses.items(), key=lambda x: x[1], reverse=True)
         
         # Prepare and send the summary messages
-        bot.send_message(chat_id, f"Summary of Expenses ({selected_duration}-wise) in Descending Order:\n")
+        bot.send_message(chat_id, f"Summary of {selectedType}s ({selected_duration}-wise) in Descending Order:\n")
         
         # Display category-wise expenses
-        bot.send_message(chat_id, "Category-Wise Expenses:")
+        bot.send_message(chat_id, f"Category-Wise {selectedType}s:")
         for category, total in sorted_category_expenses:
             bot.send_message(chat_id, f"{category}: ${total:.2f}")
 
         # Display duration-wise expenses
-        bot.send_message(chat_id, f"{selected_duration}-Wise Expenses:")
+        bot.send_message(chat_id, f"{selected_duration}-Wise {selectedType}s:")
         for duration, total in sorted_duration_expenses:
             bot.send_message(chat_id, f"{duration}: ${total:.2f}")
 
