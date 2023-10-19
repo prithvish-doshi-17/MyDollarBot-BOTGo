@@ -54,10 +54,10 @@ currency_options = {
 commands = {
     'menu': 'Display this menu',
     'add': 'Record/Add a new Spending or Income',
-    'add_recurring': 'Add a new recurring expense for future months',
+    'add_recurring': 'Add a new recurring expense/income for future months',
     'display': 'Show sum of expenditure for the current day/month',
     'estimate': 'Show an estimate of expenditure for the next day/month',
-    'history': 'Display spending history',
+    'history': 'Display spending.income history',
     'delete': 'Clear/Erase all your records',
     'edit': 'Edit/Change spending details',
     'budget': 'Add/Update/View/Delete budget',

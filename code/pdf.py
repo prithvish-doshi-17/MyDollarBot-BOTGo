@@ -34,13 +34,12 @@ def post_type_selection(message, bot):
                 fontsize=20,
             )
         for rec in user_history:
-            date, category, amount = rec.split(",")
-            date, time = date.split(" ")
+            date, category, amount, curr, actualVal = rec.split(",")
             print(date, category, amount)
             if selectedType == "Income":
-                rec_str = f"{amount}$ {category} income on {date} at {time}"
+                rec_str = f"{amount}$ {category} income on {date} -- Actual Value entered is {curr} {actualVal}"
             else:
-                rec_str = f"{amount}$ {category} expense on {date} at {time}"
+                rec_str = f"{amount}$ {category} expense on {date} -- Actual Value entered is {curr} {actualVal}"
             plt.text(
                 0,
                 top,
@@ -48,7 +47,7 @@ def post_type_selection(message, bot):
                 horizontalalignment="left",
                 verticalalignment="center",
                 transform=ax.transAxes,
-                fontsize=14,
+                fontsize=10,
                 bbox=dict(facecolor="red", alpha=0.3),
             )
             top -= 0.15

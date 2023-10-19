@@ -74,9 +74,6 @@ def command_add(message):
 def command_add_recurring(message):
     add_recurring.run(message, bot)
 
-@bot.message_handler(commands=['add_income'])
-def command_add_income(message):
-    add_income.run(message, bot)
     
 # function to fetch expenditure history of the user
 @bot.message_handler(commands=['history'])
