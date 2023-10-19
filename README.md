@@ -59,7 +59,7 @@ Please refer to the issue list available [here](https://github.com/nainisha-b/My
 
 ## Demo
 
-<video src='https://www.youtube.com/watch?v=BCTuqfJO7S0' width=180></video>
+https://www.youtube.com/watch?v=BCTuqfJO7S0
 
 ## Installation guide
 
