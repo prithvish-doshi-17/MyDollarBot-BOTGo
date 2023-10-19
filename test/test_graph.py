@@ -1,5 +1,5 @@
 from code import graphing
-from mock import ANY
+from unittest.mock import ANY
 
 dummy_total_text_none = ""
 dummy_total_text_data = """Food $10.0

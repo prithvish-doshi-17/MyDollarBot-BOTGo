@@ -1,5 +1,6 @@
 from code import budget_delete
-from mock.mock import patch
+#from mock.mock import patch
+from unittest.mock import patch
 from telebot import types
 
 
