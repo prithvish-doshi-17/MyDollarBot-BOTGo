@@ -1,26 +1,26 @@
 # 💰 TrackMyDollar V3.0 - MyExpenseBot 💰
 
-Link to delta of Phase 3 - [https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing](https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing)
+Link to delta of Phase 4 - [https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing](https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing)
 
 This video shows only the new features and enhancement of some older features. All the other features from phase 3 are working as it is.
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
-  src="https://github.com/deekay2310/MyDollarBot/blob/c56b4afd4fd5bbfffea0d0a4aade58596a5cb678/docs/0001-8711513694_20210926_212845_0000.png" alt="Expense tracking made easy!"></a>
+  src="https://github.com/nainisha-b/MyExpenseBot/blob/main/docs/Tracking_income_and_expenses.png" alt="Income and Expense tracking made easy!"></a>
 </p>
 <hr>
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 [![Platform](https://img.shields.io/badge/Platform-Telegram-blue)](https://desktop.telegram.org/)
 ![GitHub](https://img.shields.io/badge/Language-Python-blue.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/prithvish-doshi-17/MyDollarBot-BOTGo)](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/graphs/contributors)
+[![GitHub contributors](https://img.shields.io/github/contributors/nainisha-b/MyExpenseBot)](https://github.com/nainisha-b/MyExpenseBot/graphs/contributors)
 [![DOI](https://zenodo.org/badge/414661894.svg)](https://zenodo.org/badge/latestdoi/414661894)
 [![Build Status](https://app.travis-ci.com/sak007/MyDollarBot-BOTGo.svg?branch=main)](https://app.travis-ci.com/github/sak007/MyDollarBot-BOTGo)
 [![codecov](https://codecov.io/gh/sak007/MyDollarBot-BOTGo/branch/main/graph/badge.svg?token=5AYMR8MNMP)](https://codecov.io/gh/sak007/MyDollarBot-BOTGo)
-[![GitHub issues](https://img.shields.io/github/issues/prithvish-doshi-17/MyDollarBot-BOTGo)](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues?q=is%3Aopen+is%3Aissue)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/prithvish-doshi-17/MyDollarBot-BOTGo)](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub issues](https://img.shields.io/github/issues/nainisha-b/MyExpenseBot)](https://github.com/nainisha-b/MyExpenseBot/issues?q=is%3Aopen+is%3Aissue)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/nainisha-b/MyExpenseBot)](https://github.com/nainisha-b/MyExpenseBot/issues?q=is%3Aissue+is%3Aclosed)
 
-![Fork](https://img.shields.io/github/forks/deekay2310/MyDollarBot?style=social)
+![Fork](https://img.shields.io/github/forks/nainisha-b/MyExpenseBot?style=social)
 <hr>
 
 ## About MyExpenseBot(Based on Phase 2 and 3)
@@ -54,7 +54,7 @@ The new design of the Telegram Bot resolves the issues of the Phase 3
 -Support for other currencies- users can choose their choice of currency for conversion(edit/update in the history) for any transaction.
 
 ## What more can be done?
-Please refer to the issue list available [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues) to see what more can be done to make MyDollarBot better. Please refer to the MyDollarBot project present [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/projects) to have a look at the tasks to be done, tasks currently in progress and tasks already done.
+Please refer to the issue list available [here](https://github.com/nainisha-b/MyExpenseBot/issues) to see what more can be done to make MyExpenseBot better. Please refer to the MyExpense project present [here](https://github.com/users/nainisha-b/projects/1) to have a look at the tasks to be done, tasks currently in progress and tasks already done.
 
 
 ## Demo
@@ -78,7 +78,7 @@ The below instructions can be followed in order to set-up this bot at your end i
 ```
 Follow the instructions on screen and choose a name for your bot. After this, select a username for your bot that ends with "bot".
 
-4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use and update this token in the user.properties file to connect this project to the telegram bot.
 
 5. In the directory where this repo has been cloned, please run the below command to execute a bash script to run the Telegram Bot:
 ```
@@ -97,7 +97,7 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
 ```
-python run -m pytest test/
+python -m pytest test/
 ```
 
 ## Code Coverage
@@ -116,9 +116,9 @@ You can download and install the Telegram desktop application for your system fr
 
 
 <hr>
-<p>Title:'Track My Dollar'</p>
+<p>Title:'Track My Income and Expense'</p>
 <p>Version: '4.1'</p>
-<p>Description: 'An easy to use Telegram Bot to track everyday expenses'</p>
+<p>Description: 'An easy to use Telegram Bot to track everyday income and expenses'</p>
 <p>Authors(Iteration 4):'Anvitha, Nainisha, Vaishnavi'</p>
 <p>Authors(Iteration 3):'Vraj, Alex, Leo, Prithvish, Seeya'</p>
 <p>Authors(Iteration 2):'Athithya, Subramanian, Ashok, Zunaid, Rithik'</p>

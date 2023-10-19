@@ -1,18 +1,18 @@
-# Contributing to TrackMyDollar - BudgetOnTheGo - BOTGo v2
+# Contributing to TrackMyDollar - MyExpenseBot v3
 
-Follow the set of guidelines below to contribute to MyDollarBot-BOTGo!
+Follow the set of guidelines below to contribute to MyExpenseBot!
 
 ## Code of Conduct
 
-By participating, you are expected to uphold this code. Please report unacceptable behavior to pdoshi@ncsu.edu.
+By participating, you are expected to uphold this code. Please report unacceptable behavior to nbhalla@ncsu.edu.
 
 Prerequistes required before starting this project
 
-If you're doing this as part of CSC510 - SE for Fall'21, then: 
+If you're doing this as part of CSC510 - SE for Fall'23, then: 
 1. Have good understanding of Python Programming Language and Telegram Bots
 
 If you like our project and would like to contribue otherwise, please note:
-1. This project is created as part of CSC510 Coursework at NC State for Fall'21.
+1. This project is created as part of CSC510 Coursework at NC State for Fall'23.
 2. If you like to contribute, reach out to the maintainers before creating a branch, to confirm if we're still maintaining the repo.
 3. Have good understanding of Python Programming Language and Telegram Bots
 
