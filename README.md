@@ -1,8 +1,8 @@
 # 💰 TrackMyDollar V3.0 - MyExpenseBot 💰
 
-Link to delta of Phase 4 - [https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing](https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing)
+Link to Demo of Phase 4 - https://www.youtube.com/watch?v=Q4XcCcaFqmo
 
-This video shows only the new features and enhancement of some older features. All the other features from phase 3 are working as it is.
+MyExpenseBot shows the features added to the exisiting TrackMyDollar to improve scalability.
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
@@ -32,26 +32,26 @@ With simple commands, this bot allows you to:
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
--Recurring expense:
+- Recurring expense:
   Add a recurring expense that adds a certain amount every month to the user's spending, for any given category.
--Custom category:
+- Custom category:
   User can add a new category and delete an existing category as per the needs
--Budgeting:
+- Budgeting:
   User can see the budget value for the total expense and/or for each of the existing categories in the /display function
--Better visualization:
+- Better visualization:
   Added pie charts, bar graphs with and without budget lines for the user to have a look at the spending history in a better manner
   Added bar graph in the /history command to see spending across different categories
   User can see the daily and monthly expenses for spending history.
--Deployment on GCP (the bot is now available, and can be used on any device by searching for @testforbudgetmanagerbot on Telegram) 
+- Deployment on GCP (the bot is now available, and can be used on any device by searching for @testforbudgetmanagerbot on Telegram) 
 
 ## What's new? (From Phase 3 to Phase 4)
 The new design of the Telegram Bot resolves the issues of the Phase 3
--Income Feature and Cash Flow graphs- Users can add income of the user as the telegram bot is used for storing the daily expenses. Graphs are implemented for tracking income.
--Pdf Feature- User can record his/her income and daily expenses in a pdf format.
--Add Calender Feature- Users can store the input date of their income and expenses
--Edit Calender Feature-Users can edit the input date entered in future.
--Display summary of expenses (category-wise, duration-wise) in sorted (descending) order.
--Support for other currencies- users can choose their choice of currency for conversion(edit/update in the history) for any transaction.
+- Income Feature and Cash Flow graphs- Users can add income of the user as the telegram bot is used for storing the daily expenses. Graphs are implemented for tracking income.
+- Pdf Feature- User can record his/her income and daily expenses in a pdf format.
+- Add Calender Feature- Users can store the input date of their income and expenses
+- Edit Calender Feature-Users can edit the input date entered in future.
+- Display summary of expenses (category-wise, duration-wise) in sorted (descending) order.
+- Support for other currencies- users can choose their choice of currency for conversion(edit/update in the history) for any transaction.
 
 ## What more can be done?
 Please refer to the issue list available [here](https://github.com/nainisha-b/MyExpenseBot/issues) to see what more can be done to make MyExpenseBot better. Please refer to the MyExpense project present [here](https://github.com/users/nainisha-b/projects/1) to have a look at the tasks to be done, tasks currently in progress and tasks already done.
