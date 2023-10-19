@@ -1,6 +1,9 @@
-from mock import ANY
-import mock
-from mock.mock import patch
+#from mock import ANY
+#import mock
+from unittest import mock
+from unittest.mock import patch
+#from mock.mock import patch
+from unittest.mock import ANY
 from telebot import types
 from code import budget
 
