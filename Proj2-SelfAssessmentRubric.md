@@ -9,8 +9,8 @@
 |.5	| evidence that the members of the team are working across multiple places in the code base|	https://github.com/nainisha-b/MyExpenseBot/pulse|
 |1	| Docs: what: point descriptions of each class/function (in isolation)|	https://github.com/nainisha-b/MyExpenseBot/tree/test1/docs |
 |.5	| Number of commits: by different people| https://github.com/nainisha-b/MyExpenseBot/graphs/commit-activity	|
-|1	| issues are being closed| 26 Issues closed ->   |
-|.5	| issues are discussed before they are closed|	Each issue updated with the discussion before closing and comments added -> https://github.com/sak007/MyDollarBot-BOTGo/issues|
+|1	| issues are being addresssed| https://github.com/nainisha-b/MyExpenseBot/issues  |
+|.5	| issues are discussed before they are closed|	Each issue updated with the discussion before closing and comments added ->https://github.com/nainisha-b/MyExpenseBot/issues |
 |.5	| Use of syntax checkers.| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml|
 |1	| Issues reports: |https://github.com/sak007/MyDollarBot-BOTGo/issues |
 |.5	| Use of code formatters.| config files in GH showing your this formatter's config| Use of Flake8, updated in travis.yml -> https://github.com/sak007/MyDollarBot-BOTGo/blob/main/.travis.yml |
