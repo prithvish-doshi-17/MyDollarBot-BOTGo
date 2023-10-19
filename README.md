@@ -59,7 +59,7 @@ Please refer to the issue list available [here](https://github.com/nainisha-b/My
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BCTuqfJO7S0?si=Z_f4XuTdF-ZiIvmK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<video src='https://www.youtube.com/watch?v=BCTuqfJO7S0' width=180/>
 
 ## Installation guide
 
