@@ -5,6 +5,7 @@ import telebot
 from collections import namedtuple
 import logging
 from add import run, add_user_record, post_category_selection, post_amount_input
+import json
 
 from jproperties import Properties
 
@@ -117,12 +118,38 @@ def input_amount():
     selected_category = request.json.get('category')
     amount = request.json.get('amount')
     # Simulate a message object for the post_amount_input function
-    # message = {"chat": {"id": user_id}, "text": amount}
 
     message = create_message(user_id, amount)
     response = post_amount_input(message, bot, selected_category)
     return jsonify(response)
 
+@app.route("/all-budget-data", methods=['GET'])
+def get_all_data():
+    user_id = request.json.get('user_id')
+
+    # open expense_record.json 
+    with open('expense_record.json', 'r') as f:
+        data = f.read()
+
+    # parse file
+    obj = json.loads(data)
+
+    # look for the user_id and return the data
+    if obj[user_id] != None:
+        return jsonify(obj[user_id])
+    else: 
+        return jsonify({"message": "user not found"})
+    
+@app.route("/all-categories", methods=['GET'])
+def get_all_categories():
+    # open categories.txt
+    with open('categories.txt', 'r') as f:
+        data = f.read()
+
+    # split each line using the comma as a delimeter 
+    data = data.split(',')
+
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)
