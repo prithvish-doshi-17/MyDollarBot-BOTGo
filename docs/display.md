@@ -25,20 +25,20 @@ Takes 1 argument for processing - **queryResult** which is the query result from
 It takes 2 arguments for processing - **history** which is the history expense of a user, and **budget_data** is the budget setting of a user. It collects the budget setting and calculates the remaining budget so far.
 
 # How to run this feature?
-Sri Athithya Kruth, [20.10.21 20:33]
+Vaishnavi, [19.10.23 18:05]
 /display
 
-mydollarbot20102021, [20.10.21 20:33]
-[In reply to Sri Athithya Kruth]
+myexpensebot, [19.10.23 18:05]
+[In reply to Vaishnavi]
 Please select a category to see the total expense
 
-Sri Athithya Kruth, [20.10.21 20:33]
+Vaishnavi, [19.10.23 18:06]
 Day
 
-mydollarbot20102021, [20.10.21 20:33]
+myexpensebot, [19.10.23 18:06]
 Hold on! Calculating...
 
-mydollarbot20102021, [20.10.21 20:33]
+myexpensebot, [19.10.23 18:06]
 
 Here are your total spendings day:
 
