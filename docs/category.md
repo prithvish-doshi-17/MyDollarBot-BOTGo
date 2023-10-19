@@ -41,34 +41,34 @@ Once the project is running(please follow the instructions given in the main REA
 Below you can see an example in text format:
 
 #### Add
-Vaibhav, [10/19/23 5:59 PM]
+Vaishnavi, [10/19/23 5:59 PM]
 /category
 
-vaishnew1, [10/19/23 5:59 PM]
+MyExpenseBot, [10/19/23 5:59 PM]
 Select Operation
 
-Vaibhav, [10/19/23 5:59 PM]
+Vaishnavi, [10/19/23 5:59 PM]
 Add
 
-vaishnew1, [10/19/23 5:59 PM]
+MyExpenseBot, [10/19/23 5:59 PM]
 Please type the new category name
 
-Vaibhav, [10/19/23 5:59 PM]
+Vaishnavi, [10/19/23 5:59 PM]
 Clothes
 
-vaishnew1, [10/19/23 5:59 PM]
+MyExpenseBot, [10/19/23 5:59 PM]
 Add category "Clothes" successfully!
 
-Vaibhav, [10/19/23 5:59 PM]
+Vaishnavi, [10/19/23 5:59 PM]
 /category
 
-vaishnew1, [10/19/23 5:59 PM]
+MyExpenseBot, [10/19/23 5:59 PM]
 Select Operation
 
-Vaibhav, [10/19/23 6:00 PM]
+Vaishnavi, [10/19/23 6:00 PM]
 Show Categories
 
-vaishnew1, [10/19/23 6:00 PM]
+MyExpenseBot, [10/19/23 6:00 PM]
 The categories are:
 Food,Groceries,Utilities,Transport,Shopping,Miscellaneous,Food,INcome,Clothes
 
@@ -78,7 +78,7 @@ Vaibhav, [10/19/23 6:00 PM]
 vaishnew1, [10/19/23 6:00 PM]
 Select Operation
 
-Vaibhav, [10/19/23 6:00 PM]
+Vaishnavi, [10/19/23 6:00 PM]
 Delete
 
 vaishnew1, [10/19/23 6:00 PM]
