@@ -1,6 +1,6 @@
 import os
 import json
-from code import delete
+from main import delete
 from mock import patch
 from telebot import types
 

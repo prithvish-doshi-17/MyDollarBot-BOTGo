@@ -1,4 +1,4 @@
-from code import budget_update
+from main import budget_update
 import mock
 from mock import ANY
 from mock.mock import patch

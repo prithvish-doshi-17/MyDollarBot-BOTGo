@@ -8,7 +8,7 @@ The code that implements this feature can be found [here](https://github.com/sak
 ## Functions
 
 1. run(message, bot):
-This is the main function used to implement the budget add/update features. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main code.py function. 
+This is the main function used to implement the budget add/update features. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main main.py function. 
 
 Depending on whether the user has configured an overall budget or a category-wise budget, this functions checks for either case using the helper module's isOverallBudgetAvailable and isCategoryBudgetAvailable functions and passes control on the respective functions(listed below). If there is no budget configured, the function provides prompts to nudge the user to create a new budget depending on their preferences, through the post_type_selection function in the same module.
 

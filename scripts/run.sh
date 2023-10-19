@@ -1,5 +1,3 @@
-pip3 install -r requirements.txt
-
 api_token=$(grep "api_token" user.properties|cut -d'=' -f2)
 
 if [ -z "$api_token" ]
@@ -24,5 +22,5 @@ fi
 
 if [ -n "$api_token" ]
 then
-  python3 code/code.py
+  python3 backend/src/main.py
 fi

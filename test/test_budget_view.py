@@ -1,4 +1,4 @@
-from code import budget_view
+from main import budget_view
 import mock
 from mock import ANY
 from mock.mock import patch

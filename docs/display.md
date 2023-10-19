@@ -8,7 +8,7 @@ The code that implements this feature can be found [here](https://github.com/pri
 ## Functions
 
 1. run(message, bot):
-This is the main function used to implement the delete feature. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main code.py function. 
+This is the main function used to implement the delete feature. It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the main main.py function. 
 
 It gets the options for the display period from the helper.py file's getSpendDisplayOptions() method and then makes the Telegram bot display them for the user to choose along with a message indicating this. It then passes control to the display_total() function for further processing.
 

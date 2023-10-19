@@ -1,6 +1,6 @@
 import os
 import json
-from code import history
+from main import history
 from mock.mock import patch
 from telebot import types
 

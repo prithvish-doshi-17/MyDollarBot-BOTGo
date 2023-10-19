@@ -1,4 +1,4 @@
-from code import graphing
+from main import graphing
 from mock import ANY
 
 dummy_total_text_none = ""
