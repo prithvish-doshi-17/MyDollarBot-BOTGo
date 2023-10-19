@@ -72,7 +72,7 @@ def post_currency_selection(message, bot, selected_category):
             bot.send_message(chat_id, 'Invalid', reply_markup=types.ReplyKeyboardRemove())
             raise Exception("Sorry I don't recognise this currency \"{}\"!".format(selectedCurrency))
         selectedCurr[chat_id] = selectedCurrency
-        if selectedTyp == "Income" :
+        if str(selectedTyp[chat_id]) == "Income" :
             message = bot.send_message(chat_id, 'How much did you receive through {}? \n(Enter numeric values only)'.format(str(selected_category)))
         else:
             message = bot.send_message(chat_id, 'How much did you spend on {}? \n(Enter numeric values only)'.format(str(selected_category)))
@@ -104,7 +104,7 @@ def post_amount_input(message, bot, selectedCurrency):
                     reply_markup=key,
                 )
             elif result:
-                post_date_input(message,bot, result, amount_value)
+                post_date_input(message,bot, result)
                 bot.edit_message_text(
                     f"Date is set: {result}",
                     c.message.chat.id,
@@ -114,17 +114,19 @@ def post_amount_input(message, bot, selectedCurrency):
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no. ' + str(e))
 
-def post_date_input(message, bot, date_entered, amount_value):
+def post_date_input(message, bot, date_entered):
     try:
         chat_id = message.chat.id
-        if selectedCurr == 'Euro':
-            actual_value = float(amount_value) * 1.05
-        elif selectedCurr == 'INR':
-            actual_value = float(amount_value) * 0.012
+        amount = float(selectedAm[chat_id])
+        currency = str(selectedCurr[chat_id])
+        if currency == 'Euro':
+            actual_value = float(amount) * 1.05
+        elif currency == 'INR':
+            actual_value = float(amount) * 0.012
         else:
-            actual_value = float(amount_value) * 1.0
-
-        date_str, category_str, amount_str, convert_value_str, currency_str = str(date_entered), str(selectedCat[chat_id]), str(amount_value), str(actual_value), str(selectedCurr[chat_id])
+            actual_value = float(amount) * 1.0
+        amountval = round(actual_value, 2)
+        date_str, category_str, amount_str, convert_value_str, currency_str = str(date_entered), str(selectedCat[chat_id]), str(amountval), str(actual_value), str(selectedCurr[chat_id])
         if str(selectedTyp[chat_id])=="Income":
             helper.write_json(add_user_income_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
         else:
