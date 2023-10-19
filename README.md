@@ -59,7 +59,7 @@ Please refer to the issue list available [here](https://github.com/nainisha-b/My
 
 ## Demo
 
-https://user-images.githubusercontent.com/72677919/140454147-f879010a-173b-47b9-9cfb-a389171924de.mp4
+<iframe frameborder="0" width="560" height="315" src="https://biteable.com/watch/embed/4032946/7e856ba7b8062386275ab2bec9e37418" allowfullscreen="true" allow="autoplay"></iframe> <p><a href="https://biteable.com/watch/4032946/7e856ba7b8062386275ab2bec9e37418">Explain My Product (Modern 16:9) (copy)</a> on <a href="https://biteable.com">Biteable</a>.</p>
 
 ## Installation guide
 
