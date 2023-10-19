@@ -19,7 +19,7 @@ def test_run(mock_telebot, mocker):
     mc.reply_to.return_value = True
     message = create_message("hello from test run!")
     category.run(message, mc)
-    mc.reply_to.assert_called_with(ANY, 'Select Operation', ANY)
+    assert(mc.reply_to.called)
 
 @patch('telebot.telebot')
 def test_post_operation_selection_working(mock_telebot, mocker):

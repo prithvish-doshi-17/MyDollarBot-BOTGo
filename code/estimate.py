@@ -7,7 +7,7 @@ from telebot import types
 def run(message, bot):
     helper.read_json()
     chat_id = message.chat.id
-    history = helper.getUserHistory(chat_id)
+    history = helper.getUserExpenseHistory(chat_id)
     if history is None:
         bot.send_message(
             chat_id, "Oops! Looks like you do not have any spending records!")

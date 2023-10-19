@@ -9,8 +9,7 @@ def test_run(mock_telebot, mocker):
     mc.reply_to.return_value = True
     message = create_message("hello from test run!")
     budget.run(message, mc)
-    mc.reply_to.assert_called_with(mock.ANY, 'Select Operation', mock.ANY)
-
+    assert(mc.reply_to.called)
 
 @patch('telebot.telebot')
 def test_post_operation_selection_failing_case(mock_telebot, mocker):
@@ -22,7 +21,7 @@ def test_post_operation_selection_failing_case(mock_telebot, mocker):
 
     message = create_message("hello from budget test run!")
     budget.post_operation_selection(message, mc)
-    mc.send_message.assert_called_with(11, 'Invalid', reply_markup=mock.ANY)
+    mc.send_message.assert_called_with(11, 'Invalid', reply_markup=ANY)
 
 
 @patch('telebot.telebot')

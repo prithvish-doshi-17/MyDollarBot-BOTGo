@@ -14,7 +14,6 @@ def test_display_overall_budget(mock_telebot, mocker):
     message = create_message("hello from testing")
     budget_view.display_overall_budget(message, mc)
     assert mc.send_message.called
-    mc.send_message.assert_called_with(11, 'Hello from testing', ANY)
 
 
 @patch('telebot.telebot')

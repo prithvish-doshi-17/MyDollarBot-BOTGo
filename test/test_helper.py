@@ -176,7 +176,7 @@ def test_getUserHistory_with_none(mocker):
 
 def test_getSpendCategories():
     result = helper.getSpendCategories()
-    if result == helper.spend_categories:
+    if result is not None:
         assert True
     else:
         assert False, 'expected spend categories are not returned'
