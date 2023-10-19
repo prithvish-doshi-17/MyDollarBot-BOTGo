@@ -119,7 +119,7 @@ def post_type_selection(message, bot):
             elif selected_duration == "Week":
                 duration_key = date_obj.strftime("%Y-%U")
             elif selected_duration == "Month":
-                duration_key = date_obj.strftime("%y-%b")
+                duration_key = date_obj.strftime("%b-%y")
 
             if duration_key in duration_expenses:
                 duration_expenses[duration_key] += float(amount)
