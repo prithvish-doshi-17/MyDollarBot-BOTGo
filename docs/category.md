@@ -41,58 +41,51 @@ Once the project is running(please follow the instructions given in the main REA
 Below you can see an example in text format:
 
 #### Add
-Alex Chao, [2021/11/23 10:12]
+Vaibhav, [10/19/23 5:59 PM]
 /category
 
-DollarBot, [2021/11/23 10:12]
-[In reply to Alex Chao]
+vaishnew1, [10/19/23 5:59 PM]
 Select Operation
 
-Alex Chao, [2021/11/23 10:12]
+Vaibhav, [10/19/23 5:59 PM]
 Add
 
-DollarBot, [2021/11/23 10:12]
-[In reply to Alex Chao]
+vaishnew1, [10/19/23 5:59 PM]
 Please type the new category name
 
-Alex Chao, [2021/11/23 10:12]
-Restaurant
+Vaibhav, [10/19/23 5:59 PM]
+Clothes
 
-DollarBot, [2021/11/23 10:12]
-Add category "Restaurant" successfully!
+vaishnew1, [10/19/23 5:59 PM]
+Add category "Clothes" successfully!
 
-#### Delete
-Alex Chao, [2021/11/23 10:15]
+Vaibhav, [10/19/23 5:59 PM]
 /category
 
-DollarBot, [2021/11/23 10:15]
-[In reply to Alex Chao]
+vaishnew1, [10/19/23 5:59 PM]
 Select Operation
 
-Alex Chao, [2021/11/23 10:15]
-Delete
-
-DollarBot, [2021/11/23 10:15]
-[In reply to Alex Chao]
-Please choose the category you want to delete
-
-Alex Chao, [2021/11/23 10:15]
-Restaurant
-
-DollarBot, [2021/11/23 10:15]
-Delete category "Restaurant" successfully!
-
-#### Show categories
-Alex Chao, [2021/11/23 10:17]
-/category
-
-DollarBot, [2021/11/23 10:17]
-[In reply to Alex Chao]
-Select Operation
-
-Alex Chao, [2021/11/23 10:17]
+Vaibhav, [10/19/23 6:00 PM]
 Show Categories
 
-DollarBot, [2021/11/23 10:17]
+vaishnew1, [10/19/23 6:00 PM]
 The categories are:
-Food,Groceries,Utilities,Transport,Shopping,Miscellaneous
+Food,Groceries,Utilities,Transport,Shopping,Miscellaneous,Food,INcome,Clothes
+
+Vaibhav, [10/19/23 6:00 PM]
+/category
+
+vaishnew1, [10/19/23 6:00 PM]
+Select Operation
+
+Vaibhav, [10/19/23 6:00 PM]
+Delete
+
+vaishnew1, [10/19/23 6:00 PM]
+Please choose the category you want to delete
+
+Vaibhav, [10/19/23 6:00 PM]
+INcome
+
+vaishnew1, [10/19/23 6:00 PM]
+Delete category "INcome" successfully!
