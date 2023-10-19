@@ -7,6 +7,10 @@ from telebot import types
 from datetime import datetime
 
 option = {}
+selectedTyp = {}
+selectedCat = {}
+selectedAm = {}
+selectedCurr = {}
 
 def run(message, bot):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
@@ -29,6 +33,7 @@ def post_type_selection(message, bot):
             for c in helper.getSpendCategories():
                 markup.add(c)
         msg = bot.reply_to(message, 'Select Category', reply_markup=markup)
+        selectedTyp[chat_id] = selectedType
         bot.register_next_step_handler(msg, post_category_selection, bot, selectedType)
     except Exception as e:
         # print("hit exception")
@@ -45,18 +50,19 @@ def post_category_selection(message, bot, selectedType):
         if selected_category not in categories:
             bot.send_message(chat_id, 'Invalid', reply_markup=types.ReplyKeyboardRemove())
             raise Exception("Sorry I don't recognise this category \"{}\"!".format(selected_category))
+        selectedCat[chat_id] = selected_category
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         options = helper.getCurrencyOptions()
         markup.row_width = 2
         for c in options.values():
             markup.add(c)
         msg = bot.reply_to(message, 'Select Currency', reply_markup=markup)
-        bot.register_next_step_handler(message, post_currency_selection, bot, selectedType, selected_category)
+        bot.register_next_step_handler(message, post_currency_selection, bot,selected_category)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no. ' + str(e))
 
-def post_currency_selection(message, bot, selectedType, selected_category):
+def post_currency_selection(message, bot, selected_category):
     try:
         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
         chat_id = message.chat.id
@@ -65,23 +71,24 @@ def post_currency_selection(message, bot, selectedType, selected_category):
         if selectedCurrency not in currencyOptions:
             bot.send_message(chat_id, 'Invalid', reply_markup=types.ReplyKeyboardRemove())
             raise Exception("Sorry I don't recognise this currency \"{}\"!".format(selectedCurrency))
-        if selectedType == "Income" :
+        selectedCurr[chat_id] = selectedCurrency
+        if selectedTyp == "Income" :
             message = bot.send_message(chat_id, 'How much did you receive through {}? \n(Enter numeric values only)'.format(str(selected_category)))
         else:
             message = bot.send_message(chat_id, 'How much did you spend on {}? \n(Enter numeric values only)'.format(str(selected_category)))
-        bot.register_next_step_handler(message, post_amount_input, bot, selectedType, selected_category, selectedCurrency)
+        bot.register_next_step_handler(message, post_amount_input, bot, selectedCurrency)
     except Exception as e:
         # print("hit exception")
         helper.throw_exception(e, message, bot, logging)
 
-def post_amount_input(message, bot, selectedType, selected_category, selectedCurrency):
+def post_amount_input(message, bot, selectedCurrency):
     try:
         chat_id = message.chat.id
         amount_entered = message.text
         amount_value = helper.validate_entered_amount(amount_entered)  # validate
         if amount_value == 0:  # cannot be $0 spending
             raise Exception("Spent amount has to be a non-zero number.")
-            
+        selectedAm[chat_id] = amount_value   
         calendar, step = DetailedTelegramCalendar().build()
         bot.send_message(chat_id, f"Select {LSTEP[step]}", reply_markup=calendar)
 
@@ -97,7 +104,7 @@ def post_amount_input(message, bot, selectedType, selected_category, selectedCur
                     reply_markup=key,
                 )
             elif result:
-                post_date_input(message,result, bot, selectedType, selected_category,amount_value, selectedCurrency)
+                post_date_input(message,bot, result, amount_value)
                 bot.edit_message_text(
                     f"Date is set: {result}",
                     c.message.chat.id,
@@ -107,23 +114,23 @@ def post_amount_input(message, bot, selectedType, selected_category, selectedCur
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no. ' + str(e))
 
-def post_date_input(message, date_entered, bot, selectedType, selected_category, amount_value, selectedCurrency):
+def post_date_input(message, bot, date_entered, amount_value):
     try:
         chat_id = message.chat.id
-        if selectedCurrency == 'Euro':
+        if selectedCurr == 'Euro':
             actual_value = float(amount_value) * 1.05
-        elif selectedCurrency == 'INR':
+        elif selectedCurr == 'INR':
             actual_value = float(amount_value) * 0.012
         else:
             actual_value = float(amount_value) * 1.0
 
-        date_str, category_str, amount_str, convert_value_str, currency_str = str(date_entered), str(selected_category), str(amount_value), str(actual_value), str(selectedCurrency)
-        if selectedType=="Income":
+        date_str, category_str, amount_str, convert_value_str, currency_str = str(date_entered), str(selectedCat[chat_id]), str(amount_value), str(actual_value), str(selectedCurr[chat_id])
+        if str(selectedTyp[chat_id])=="Income":
             helper.write_json(add_user_income_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
         else:
             helper.write_json(add_user_expense_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
         bot.send_message(chat_id, 'The following expenditure has been recorded: You have spent/received ${} for {} on {}. Actual currency is {} and value is {}\n'.format(convert_value_str, category_str, date_str, currency_str,amount_str))
-        helper.display_remaining_budget(message, bot, selected_category)
+        helper.display_remaining_budget(message, bot, selectedCat[chat_id])
 
     except Exception as e:
         logging.exception(str(e))
