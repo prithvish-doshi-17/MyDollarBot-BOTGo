@@ -1,4 +1,4 @@
-# About MyExpense's /add Feature
+# About MyExpenseBot's /add Feature
 This feature enables the user to add a new income or expense to their income or expense tracker.
 
 Currently we have the following expense categories set by default:

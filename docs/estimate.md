@@ -1,8 +1,8 @@
-# About MyDollarBot's /estimate Feature
+# About MyExpenseBot's /estimate Feature
 This feature enables the user to estimate their expenses for the next month or next day. The option to choose next month or next day pops up on the screen and they can choose their preference to be displayed.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/estimate-feature/code/estimate.py)
+The code that implements this feature can be found [here](https://github.com/nainisha-b/MyExpenseBot/blob/main/code/estimate.py)
 
 # Code Description
 ## Functions
