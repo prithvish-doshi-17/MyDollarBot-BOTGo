@@ -9,8 +9,8 @@ S. No	Notes	Self-assement == 229	Evidence
 8	Docs: doco generated  format not ugly	3	https://github.com/nainisha-b/MyExpenseBot/tree/main/docs
 9	Docs: what: point descriptions of each class/function (in isolation)	3	https://github.com/nainisha-b/MyExpenseBot/tree/main/docs
 10	Docs: how: for common use cases X Y Z mini-tutorials showing worked examples on how to do X Y Z	2	video depicts the examples used.
-11	Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing	3	https://github.com/nainisha-b/MyExpenseBot/tree/main/docs
-12	Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.	3	https://github.com/nainisha-b/MyExpenseBot/blob/main/CONTRIBUTING.md
+11	Docs: why: docs tell a story motivate the whole thing deliver a punchline that makes you want to rush out and use the thing	3	https://github.com/nainisha-b/MyExpenseBot/tree/main/docs
+12	Docs: short video, animated hosted on your repo. That convinces people why they want to work on your code.	3	https://github.com/nainisha-b/MyExpenseBot/blob/main/CONTRIBUTING.md
 13	Use of version control tools	3	Git is used as a version control tool
 14	Use of style checkers	2	Flake 8 - https://github.com/nainisha-b/MyExpenseBot/blob/main/.travis.yml
 15	Use of code formatters.	2	 python visual studio code
