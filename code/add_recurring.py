@@ -2,8 +2,8 @@ import helper
 import logging
 import telebot
 import calendar
-from telegram_bot_calendar import DetailedTelegramCalendar, LSTEP
 from telebot import types
+from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
 option = {}
@@ -89,37 +89,19 @@ def post_amount_input(message, bot, selectedCurrency):
         if amount_value == 0:  # cannot be $0 spending
             raise Exception("Spent amount has to be a non-zero number.")
         selectedAm[chat_id] = amount_value   
-        calendar, step = DetailedTelegramCalendar().build()
-        bot.send_message(chat_id, f"Select {LSTEP[step]}", reply_markup=calendar)
-
-        @bot.callback_query_handler(func=DetailedTelegramCalendar.func())
-        def cal(c):
-            result, key, step = DetailedTelegramCalendar().process(c.data)
-
-            if not result and key:
-                bot.edit_message_text(
-                    f"Select {LSTEP[step]}",
-                    c.message.chat.id,
-                    c.message.message_id,
-                    reply_markup=key,
-                )
-            elif result:
-                post_date_input(message,bot, result)
-                bot.edit_message_text(
-                    f"Date is set: {result}",
-                    c.message.chat.id,
-                    c.message.message_id,
-                )
+        message = bot.send_message(chat_id, 'For how many months in the future will the expense/income be there? \n(Enter integer values only)')
+        bot.register_next_step_handler(message, post_duration_input, bot, amount_value)
     except Exception as e:
         logging.exception(str(e))
         bot.reply_to(message, 'Oh no. ' + str(e))
 
-def post_date_input(message, bot, date_entered):
+
+def post_duration_input(message, bot, amount_value):
     try:
         chat_id = message.chat.id
         amount = float(selectedAm[chat_id])
         currency = str(selectedCurr[chat_id])
-        formatted_date = date_entered.strftime('%d-%b-%y')
+        duration_value = message.text
         if currency == 'Euro':
             actual_value = float(amount) * 1.05
         elif currency == 'INR':
@@ -127,17 +109,18 @@ def post_date_input(message, bot, date_entered):
         else:
             actual_value = float(amount) * 1.0
         amountval = round(actual_value, 2)
-        date_str, category_str, amount_str, convert_value_str, currency_str = str(formatted_date), str(selectedCat[chat_id]), str(amount), str(amountval), str(selectedCurr[chat_id])
-        if str(selectedTyp[chat_id])=="Income":
-            helper.write_json(add_user_income_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
-        else:
-            helper.write_json(add_user_expense_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
-        bot.send_message(chat_id, 'The following expenditure has been recorded: You have spent/received ${} for {} on {}. Actual currency is {} and value is {}\n'.format(convert_value_str, category_str, date_str, currency_str,amount_str))
-        helper.display_remaining_budget(message, bot, selectedCat[chat_id])
-
+                
+        for i in range(int(duration_value)):
+            date_of_entry = (datetime.today() + relativedelta(months=+i)).strftime(helper.getDateFormat())
+            date_str, category_str, amount_str, convert_value_str, currency_str = str(date_of_entry), str(selectedCat[chat_id]), str(amount), str(amountval), str(selectedCurr[chat_id])
+            if str(selectedTyp[chat_id])=="Income":
+                helper.write_json(add_user_income_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
+            else:
+                helper.write_json(add_user_expense_record(bot,chat_id, "{},{},{},{},{}".format(date_str, category_str, convert_value_str, currency_str, amount_str)))
+        bot.send_message(chat_id, 'The following expenditure has been recorded: You have spent/received ${} for {} for the next {} months. Actual currency is {} and value is {}\n'.format(convert_value_str, category_str, duration_value, currency_str,amount_str))
     except Exception as e:
         logging.exception(str(e))
-        bot.reply_to(date_entered, 'Oh no. ' + str(e))
+        bot.reply_to(message, 'Oh no. ' + str(e))
 
 def add_user_expense_record(bot,chat_id, record_to_be_added):
     user_list = helper.read_json()

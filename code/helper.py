@@ -6,6 +6,7 @@ from datetime import datetime
 choices = ['Date', 'Category', 'Cost']
 plot = ['Bar with budget', 'Pie','Bar without budget']
 spend_display_option = ['Day', 'Month']
+spend_categories = ['Food','Groceries','Utilities','Transport','Shopping','Miscellaneous']
 spend_estimate_option = ['Next day', 'Next month']
 update_options = {
     'continue': 'Continue',
@@ -24,7 +25,8 @@ budget_types = {
 }
 
 data_format = {
-    'data': [],
+    'income_data': [],
+    'expense_data': [],
     'budget': {
         'overall': None,
         'category': None
@@ -32,33 +34,39 @@ data_format = {
 }
 
 category_options = {
-    'add': 'Add',
-    'delete': 'Delete',
+    'add': 'Add a Category',
+    'delete': 'Delete a Category',
     'view': 'Show Categories'
+}
+
+income_or_expense_options = {
+    'income': 'Income',
+    'expense': 'Expense'
+}
+
+currency_options = {
+    'Euro': 'Euro',
+    'USD': 'USD',
+    'INR': 'INR'
 }
 
 # set of implemented commands and their description
 commands = {
     'menu': 'Display this menu',
-    'add': 'Record/Add a new spending',
-    'add_recurring': 'Add a new recurring expense for future months',
+    'add': 'Record/Add a new Spending or Income',
+    'add_recurring': 'Add a new recurring expense/income for future months',
     'display': 'Show sum of expenditure for the current day/month',
     'estimate': 'Show an estimate of expenditure for the next day/month',
-    'history': 'Display spending history',
+    'history': 'Display spending.income history',
     'delete': 'Clear/Erase all your records',
     'edit': 'Edit/Change spending details',
     'budget': 'Add/Update/View/Delete budget',
-    'category': 'Add/Delete/Show custom categories'
+    'category': 'Add/Delete/Show custom categories',
+    'pdf': 'Generate a pdf for Income or History'
 }
 
-#exchange_rates = {
-#    'USD': 1.0,  # Base currency
- #   'EUR': 0.85,  # Example: 1 USD = 0.85 EUR
-  #  'GBP': 0.75,  # Example: 1 USD = 0.75 GBP
-    # Add more currencies and exchange rates as needed
-#}
 
-dateFormat = '%d-%b-%Y'
+dateFormat = '%d-%b-%y'
 timeFormat = '%H:%M'
 monthFormat = '%b-%Y'
 
@@ -86,7 +94,6 @@ def write_json(user_list):
     except FileNotFoundError:
         print('Sorry, the data file could not be found.')
 
-
 def validate_entered_amount(amount_entered):
     if amount_entered is None:
         return 0
@@ -96,6 +103,16 @@ def validate_entered_amount(amount_entered):
             return str(amount)
     return 0
 
+
+def validate_entered_date(date_entered):
+    if date_entered is None:
+        return datetime.today().strftime(getDateFormat() + ' ' + getTimeFormat())
+    else:
+    	# try:
+        return datetime.strftime(date_entered, getDateFormat() + ' ' + getTimeFormat())
+        # except ValueError:
+        #     msg = "Not a valid date: '{0}'.".format(date_entered)
+        #     raise argparse.ArgumentTypeError(msg)
 
 def validate_entered_duration(duration_entered):
     if duration_entered is None:
@@ -107,12 +124,24 @@ def validate_entered_duration(duration_entered):
     return 0
 
 
-def getUserHistory(chat_id):
+def getUserIncomeHistory(chat_id):
     data = getUserData(chat_id)
     if data is not None:
-        return data['data']
+        return data['income_data']
     return None
 
+def getUserExpenseHistory(chat_id):
+    data = getUserData(chat_id)
+    if data is not None:
+        return data['expense_data']
+    return None
+
+def getUserHistory(chat_id, selectedType):
+    if selectedType == "Income":
+        return getUserIncomeHistory(chat_id)
+    else:
+        return getUserExpenseHistory(chat_id)
+    
 
 def getUserData(chat_id):
     user_list = read_json()
@@ -194,7 +223,7 @@ def display_remaining_overall_budget(message, bot):
 
 def calculateRemainingOverallBudget(chat_id):
     budget = getOverallBudget(chat_id)
-    history = getUserHistory(chat_id)
+    history = getUserExpenseHistory(chat_id)
     query = datetime.now().today().strftime(getMonthFormat())
     queryResult = [value for index, value in enumerate(history) if str(query) in value]
 
@@ -222,7 +251,7 @@ def display_remaining_category_budget(message, bot, cat):
 
 def calculateRemainingCategoryBudget(chat_id, cat):
     budget = getCategoryBudgetByCategory(chat_id, cat)
-    history = getUserHistory(chat_id)
+    history = getUserExpenseHistory(chat_id)
     query = datetime.now().today().strftime(getMonthFormat())
     queryResult = [value for index, value in enumerate(history) if str(query) in value]
 
@@ -238,20 +267,24 @@ def calculate_total_spendings_for_category(queryResult, cat):
             total = total + float(s[2])
     return total
 
-
-
-
-
 def getSpendCategories():
     with open("categories.txt", "r") as tf:
         spend_categories = tf.read().split(',')
     return spend_categories
-    
-def getCurrencyValues():
-    with open("currency.txt", "r") as tf:
-        currency_values = tf.read().split(',')
-    return currency_values
- 
+
+def getIncomeCategories():
+    with open("income_categories.txt","r") as tf:
+        income_categories = tf.read().split(',')
+    return income_categories
+
+def getCategories(selectedType):
+    if selectedType == "Income":
+        income_categories = getIncomeCategories()
+        return income_categories
+    else:
+        spend_categories = getSpendCategories()
+        return spend_categories
+
 def getplot():
     return plot
 
@@ -297,4 +330,9 @@ def getUpdateOptions():
 
 def getCategoryOptions():
     return category_options
-    
+
+def getIncomeOrExpense():
+    return income_or_expense_options
+
+def getCurrencyOptions():
+    return currency_options
