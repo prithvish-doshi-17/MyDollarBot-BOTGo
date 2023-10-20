@@ -1,7 +1,7 @@
 import os
 import json
-import mock
-from mock.mock import patch
+from unittest import mock
+from unittest.mock import patch
 from telebot import types
 from code import category
 from mock import ANY

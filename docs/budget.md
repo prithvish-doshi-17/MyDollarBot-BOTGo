@@ -1,10 +1,10 @@
-# About MyDollarBot's /budget Feature
+# About MyExpenseBot's /budget Feature
 This feature enables the user to add, remove, edit or display a budget in their expense tracker. The user can choose between an overall expense tracker, which counts every expenses made to the budget, or a category-wise expense tracker, which only counts expenses in a particular category towards the budget for that category.
 
 The user can choose a category and add the amount for the budget to be stored in the expense tracker.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/budget.py)
+The code that implements this feature can be found [here](https://github.com/nainisha-b/MyExpenseBot/blob/main/code/budget.py)
 
 # Code Description
 ## Functions

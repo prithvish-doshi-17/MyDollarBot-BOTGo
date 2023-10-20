@@ -1,10 +1,10 @@
 from code import helper
 from code.helper import isCategoryBudgetByCategoryAvailable, throw_exception
-from mock import ANY
+from unittest.mock import ANY
 from telebot import types
-from mock.mock import patch
+from unittest.mock import patch
 import logging
-import mock
+from unittest import mock
 
 MOCK_CHAT_ID = 101
 MOCK_SELECTED_TYPE = "Income"

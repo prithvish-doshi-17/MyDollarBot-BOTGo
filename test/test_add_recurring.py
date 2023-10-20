@@ -1,6 +1,7 @@
 import os
 import json
-from mock.mock import patch
+from unittest.mock import patch
+#from mock.mock import patch
 from telebot import types
 from unittest.mock import Mock, ANY
 from code import add
@@ -69,7 +70,7 @@ def test_post_amount_input_working_withdata(mock_telebot, mocker):
     add.option.return_value = {11, "here"}
 
     message = create_message("hello from testing!")
-    add.post_amount_input(message, mc, 'Food')
+    add.post_amount_input(message, mc, 'Food', 'Income')
     assert(mc.send_message.called)
 
 
@@ -81,7 +82,7 @@ def test_post_amount_input_nonworking(mock_telebot, mocker):
     mocker.patch.object(add, 'helper')
     add.helper.validate_entered_amount.return_value = 0
     message = create_message("hello from testing!")
-    add.post_amount_input(message, mc, 'Food')
+    add.post_amount_input(message, mc, 'Food','Income')
     assert(mc.reply_to.called)
 
 
