@@ -23,4 +23,4 @@
 |1| Test cases are routinely executed	| https://codecov.io/gh/sak007/MyDollarBot-BOTGo/branch/main/graph/badge.svg?token=5AYMR8MNMP)](https://codecov.io/gh/sak007/MyDollarBot-BOTGo)|
 |3| Documentation describing how this version improves on the older version| Updated README.md to show the Demo ->https://github.com/nainisha-b/MyExpenseBot/blob/Documentation/README.md 	|
 |3	| This version is a little(1), some(2), much(3) improved on the last version. | Tutor's assessment |
-|16	| Total	| |
+|47	| Total	| |
