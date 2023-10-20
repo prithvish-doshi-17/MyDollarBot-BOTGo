@@ -1,9 +1,7 @@
-from mock import ANY
-import mock
 from mock.mock import patch
 from telebot import types
 from code import budget
-
+from unittest.mock import Mock, ANY
 
 @patch('telebot.telebot')
 def test_run(mock_telebot, mocker):
@@ -11,8 +9,7 @@ def test_run(mock_telebot, mocker):
     mc.reply_to.return_value = True
     message = create_message("hello from test run!")
     budget.run(message, mc)
-    assert(mc.reply_to.called_with(ANY, 'Select Operation', ANY))
-
+    assert(mc.reply_to.called)
 
 @patch('telebot.telebot')
 def test_post_operation_selection_failing_case(mock_telebot, mocker):
@@ -24,7 +21,7 @@ def test_post_operation_selection_failing_case(mock_telebot, mocker):
 
     message = create_message("hello from budget test run!")
     budget.post_operation_selection(message, mc)
-    mc.send_message.assert_called_with(11, 'Invalid', reply_markup=mock.ANY)
+    mc.send_message.assert_called_with(11, 'Invalid', reply_markup=ANY)
 
 
 @patch('telebot.telebot')
