@@ -1,6 +1,6 @@
 |Score | Notes | Evidence |
 |-----|------|------|
-|.5	| Short release cycles| 3 Releases	-> https://github.com/sak007/MyDollarBot-BOTGo/releases |
+|3| Short release cycles| 3 Releases	-> https://github.com/nainisha-b/MyExpenseBot/releases/tag/v3.0 |
 |3| Workload is spread over the whole team | Each memeber worked on a different feature ->  https://github.com/nainisha-b/MyExpenseBot/pulse |
 |3| Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing	| Updated documentation for each feature -> https://github.com/nainisha-b/MyExpenseBot/tree/test1/docs|
 |3| File CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| https://github.com/nainisha-b/MyExpenseBot/blob/Documentation/CONTRIBUTING.md  |	
