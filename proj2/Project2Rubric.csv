@@ -39,7 +39,7 @@ S. No	Notes	Self-assement == 229	Evidence
 37	Source code publicly available to download, either as a downloadable bundle or via access to a source code repository	3	It can be directly cloned
 38	Software hosted in an established, third-party repository likeGitHub (https://github.com)	3	Yes
 39	Documentation clearly available within your software	3	https://github.com/nainisha-b/MyExpenseBot/blob/Documentation/README.md
-40	Documentation includes a "quick start" guide, that provides a short overview of how to use your software with some basic examples of use	3	https://github.com/nainisha-b/MyExpenseBot/blob/Documentation/README.md
+40	Documentation includes a quick start guide, that provides a short overview of how to use your software with some basic examples of use	3	https://github.com/nainisha-b/MyExpenseBot/blob/Documentation/README.md
 41	Providing more extensive documentation, that gives a clear, step-by-step instructions on how to deploy and use our software	3	https://github.com/nainisha-b/MyExpenseBot/blob/Documentation/README.md
 42	Comprehensive guide to all your software’s commands, functions and options	3	https://github.com/nainisha-b/MyExpenseBot/tree/main/docs
 43	Troubleshooting information that describes the symptoms and step-by-step solutions for problems and error messages	0	NA
