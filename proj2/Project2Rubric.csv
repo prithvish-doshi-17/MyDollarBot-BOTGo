@@ -33,7 +33,7 @@ S. No	Notes	Self-assement == 257	Evidence
 31	Website and documentation clearly describe the type of user who should use your software	3	https://github.com/nainisha-b/MyExpenseBot/blob/main/README.md
 32	Case studies to show how software is used by us	3	provided Gif in the README.md
 33	Project name unique	3	It is made by using Expense + Telegram Bot = ExpenseBot, and the only currency being used is dollars
-34	Project name free from trademark violations	3	We verified that "MyExpenseBot" has not been trademarked by any python repository or any US company.
+34	Project name free from trademark violations	3	We verified that MyExpenseBot has not been trademarked by any python repository or any US company.
 35	Software available as a package that can be deployed without building it	3	
 36	Software available for free	3	Can be used by anyone - https://github.com/nainisha-b/MyExpenseBot
 37	Source code publicly available to download, either as a downloadable bundle or via access to a source code repository	3	It can be directly cloned
