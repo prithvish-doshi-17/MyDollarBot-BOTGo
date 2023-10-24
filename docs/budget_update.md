@@ -1,8 +1,8 @@
-# About MyDollarBot's budget_view module
+# About MyExpense's budget_view module
 The budget_view module contains all the functions required to implement the display add and update features. In essence, all operations involved in addition of a new budget and updating an existing budget are taken care of in this module and are implemented here. 
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/sak007/MyDollarBot-BOTGo/blob/main/code/budget_update.py)
+The code that implements this feature can be found [here](https://github.com/nainisha-b/MyExpenseBot/blob/main/code/budget_update.py)
 
 # Code Description
 ## Functions

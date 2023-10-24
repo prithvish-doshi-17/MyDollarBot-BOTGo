@@ -1,8 +1,8 @@
-# About MyDollarBot's /display Feature
+# About MyExpenseBot /display Feature
 This feature enables the user to view their expenses for the past month or past day. The option to choose month or day pops up on the screen and they can choose their preference to be displayed afterwards.
 
 # Location of Code for this Feature
-The code that implements this feature can be found [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/blob/main/code/display.py)
+The code that implements this feature can be found [here](https://github.com/nainisha-b/MyExpenseBot/blob/test1/code/display.py)
 
 # Code Description
 ## Functions
@@ -15,27 +15,30 @@ It gets the options for the display period from the helper.py file's getSpendDis
 2. display_total(message, bot):
 It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the  run(message, bot): function in the same file. This function loads the user's data using the helper file's getUserHistory(chat_id) method. After this, depending on the option user has chosen on the UI, it calls the  calculate_spendings(queryResult): to process the queried data to return to the user after which it finally passes the data to the UI for the user to view.
 
-3. calculate_spendings(queryResult):
+3. plot_total(message,bot):
+It takes 2 arguments for processing - **message** which is the message from the user, and **bot** which is the telegram bot object from the  run(message, bot): function in the same file. This function illustrates the cash flow graphs based on the budget data.
+
+4. calculate_spendings(queryResult):
 Takes 1 argument for processing - **queryResult** which is the query result from the display total function in the same file. It parses the query result and turns it into a form suitable for display on the UI by the user.
 
-4. display_budget_by_text(history, budget_data) -> str:
+5. display_budget_by_text(history, budget_data) -> str:
 It takes 2 arguments for processing - **history** which is the history expense of a user, and **budget_data** is the budget setting of a user. It collects the budget setting and calculates the remaining budget so far.
 
 # How to run this feature?
-Sri Athithya Kruth, [20.10.21 20:33]
+Vaishnavi, [19.10.23 18:05]
 /display
 
-mydollarbot20102021, [20.10.21 20:33]
-[In reply to Sri Athithya Kruth]
+myexpensebot, [19.10.23 18:05]
+[In reply to Vaishnavi]
 Please select a category to see the total expense
 
-Sri Athithya Kruth, [20.10.21 20:33]
+Vaishnavi, [19.10.23 18:06]
 Day
 
-mydollarbot20102021, [20.10.21 20:33]
+myexpensebot, [19.10.23 18:06]
 Hold on! Calculating...
 
-mydollarbot20102021, [20.10.21 20:33]
+myexpensebot, [19.10.23 18:06]
 
 Here are your total spendings day:
 

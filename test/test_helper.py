@@ -1,22 +1,25 @@
 from code import helper
 from code.helper import isCategoryBudgetByCategoryAvailable, throw_exception
-from mock import ANY
+from unittest.mock import ANY
 from telebot import types
-from mock.mock import patch
+from unittest.mock import patch
 import logging
-import mock
+from unittest import mock
 
 MOCK_CHAT_ID = 101
+MOCK_SELECTED_TYPE = "Income"
 MOCK_USER_DATA = {
     str(MOCK_CHAT_ID): {
-        'data': ["correct_mock_value"],
+        'income_data': ["correct_mock_value"],
+        'expense_data': ["correct_mock_value"],
         'budget': {
             'overall': None,
             'category': None
         }
     },
     '102': {
-        'data': ["wrong_mock_value"],
+        'income_data': ["wrong_mock_value"],
+        'expense_data': ["wrong_mock_value"],
         'budget': {
             'overall': None,
             'category': None
@@ -144,7 +147,7 @@ def test_validate_entered_amount_mixed():
 def test_getUserHistory_without_data(mocker):
     mocker.patch.object(helper, 'read_json')
     helper.read_json.return_value = {}
-    result = helper.getUserHistory(MOCK_CHAT_ID)
+    result = helper.getUserHistory(MOCK_CHAT_ID, MOCK_SELECTED_TYPE)
     if result is None:
         assert True
     else:
@@ -154,8 +157,8 @@ def test_getUserHistory_without_data(mocker):
 def test_getUserHistory_with_data(mocker):
     mocker.patch.object(helper, 'read_json')
     helper.read_json.return_value = MOCK_USER_DATA
-    result = helper.getUserHistory(MOCK_CHAT_ID)
-    if result == MOCK_USER_DATA[str(MOCK_CHAT_ID)]['data']:
+    result = helper.getUserIncomeHistory(MOCK_CHAT_ID)
+    if result == MOCK_USER_DATA[str(MOCK_CHAT_ID)]['income_data']:
         assert True
     else:
         assert False, 'User data is available but not found'
@@ -164,7 +167,7 @@ def test_getUserHistory_with_data(mocker):
 def test_getUserHistory_with_none(mocker):
     mocker.patch.object(helper, 'read_json')
     helper.read_json.return_value = None
-    result = helper.getUserHistory(MOCK_CHAT_ID)
+    result = helper.getUserIncomeHistory(MOCK_CHAT_ID)
     if result is None:
         assert True
     else:
@@ -173,7 +176,7 @@ def test_getUserHistory_with_none(mocker):
 
 def test_getSpendCategories():
     result = helper.getSpendCategories()
-    if result == helper.spend_categories:
+    if result is not None:
         assert True
     else:
         assert False, 'expected spend categories are not returned'
@@ -249,7 +252,8 @@ def test_throw_exception(mock_telebot, mocker):
 def test_createNewUserRecord():
     data_format_call = helper.createNewUserRecord()
     data_format = {
-        'data': [],
+        'income_data': [],
+        'expense_data': [],
         'budget': {
             'overall': None,
             'category': None

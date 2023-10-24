@@ -1,64 +1,65 @@
-# 💰 TrackMyDollar V2.0 - Budget On The Go(BOTGo) 💰
+# 💰 TrackMyDollar V3.0 - MyExpenseBot 💰
 
-Link to delta of Phase 3 - [https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing](https://drive.google.com/file/d/1VqQPTm4tFjG8mbixrjqvjnmgsYb8YD49/view?usp=sharing)
+Link to Demo of Phase 4 - https://www.youtube.com/watch?v=Q4XcCcaFqmo
 
-This video shows only the new features and enhancement of some older features. All the other features from phase 2 are working as it is.
+MyExpenseBot shows the features added to the exisiting TrackMyDollar to improve scalability.
 <hr>
 <p align="center">
 <a><img  height=360 width=550 
-  src="https://github.com/deekay2310/MyDollarBot/blob/c56b4afd4fd5bbfffea0d0a4aade58596a5cb678/docs/0001-8711513694_20210926_212845_0000.png" alt="Expense tracking made easy!"></a>
+  src="https://github.com/nainisha-b/MyExpenseBot/blob/main/docs/Tracking_income_and_expenses.png" alt="Income and Expense tracking made easy!"></a>
 </p>
 <hr>
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 [![Platform](https://img.shields.io/badge/Platform-Telegram-blue)](https://desktop.telegram.org/)
 ![GitHub](https://img.shields.io/badge/Language-Python-blue.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/prithvish-doshi-17/MyDollarBot-BOTGo)](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/graphs/contributors)
+[![GitHub contributors](https://img.shields.io/github/contributors/nainisha-b/MyExpenseBot)](https://github.com/nainisha-b/MyExpenseBot/graphs/contributors)
 [![DOI](https://zenodo.org/badge/414661894.svg)](https://zenodo.org/badge/latestdoi/414661894)
 [![Build Status](https://app.travis-ci.com/sak007/MyDollarBot-BOTGo.svg?branch=main)](https://app.travis-ci.com/github/sak007/MyDollarBot-BOTGo)
 [![codecov](https://codecov.io/gh/sak007/MyDollarBot-BOTGo/branch/main/graph/badge.svg?token=5AYMR8MNMP)](https://codecov.io/gh/sak007/MyDollarBot-BOTGo)
-[![GitHub issues](https://img.shields.io/github/issues/prithvish-doshi-17/MyDollarBot-BOTGo)](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues?q=is%3Aopen+is%3Aissue)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/prithvish-doshi-17/MyDollarBot-BOTGo)](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub issues](https://img.shields.io/github/issues/nainisha-b/MyExpenseBot)](https://github.com/nainisha-b/MyExpenseBot/issues?q=is%3Aopen+is%3Aissue)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/nainisha-b/MyExpenseBot)](https://github.com/nainisha-b/MyExpenseBot/issues?q=is%3Aissue+is%3Aclosed)
 
-![Fork](https://img.shields.io/github/forks/deekay2310/MyDollarBot?style=social)
+![Fork](https://img.shields.io/github/forks/nainisha-b/MyExpenseBot?style=social)
 <hr>
 
-## About TrackMyDollar
+## About MyExpenseBot(Based on Phase 2 and 3)
 
-TrackMyDollar is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle 
+MyExpenseBot is an easy-to-use Telegram Bot that assists you in recording your daily expenses on a local system without any hassle 
 With simple commands, this bot allows you to:
 - Add/Record a new spending
 - Show the sum of your expenditure for the current day/month
 - Display your spending history
 - Clear/Erase all your records
 - Edit/Change any spending details if you wish to
-
-
-## What's new? (From Phase 2 to Phase 3)
-
 - Recurring expense:
   Add a recurring expense that adds a certain amount every month to the user's spending, for any given category.
-  
 - Custom category:
   User can add a new category and delete an existing category as per the needs
-  
 - Budgeting:
   User can see the budget value for the total expense and/or for each of the existing categories in the /display function
-  
 - Better visualization:
   Added pie charts, bar graphs with and without budget lines for the user to have a look at the spending history in a better manner
   Added bar graph in the /history command to see spending across different categories
-  User can see the daily and monthly expenses for spending history
-  
-- Deployment on GCP (the bot is now available, and can be used on any device by searching for @testforbudgetmanagerbot on Telegram)
+  User can see the daily and monthly expenses for spending history.
+- Deployment on GCP (the bot is now available, and can be used on any device by searching for @testforbudgetmanagerbot on Telegram) 
+
+## What's new? (From Phase 3 to Phase 4)
+The new design of the Telegram Bot resolves the issues of the Phase 3
+- Income Feature and Cash Flow graphs- Users can add income of the user as the telegram bot is used for storing the daily expenses. Graphs are implemented for tracking income.
+- Pdf Feature- User can record his/her income and daily expenses in a pdf format.
+- Add Calender Feature- Users can store the input date of their income and expenses
+- Edit Calender Feature-Users can edit the input date entered in future.
+- Display summary of expenses (category-wise, duration-wise) in sorted (descending) order.
+- Support for other currencies- users can choose their choice of currency for conversion(edit/update in the history) for any transaction.
 
 ## What more can be done?
-Please refer to the issue list available [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/issues) to see what more can be done to make MyDollarBot better. Please refer to the MyDollarBot project present [here](https://github.com/prithvish-doshi-17/MyDollarBot-BOTGo/projects) to have a look at the tasks to be done, tasks currently in progress and tasks already done.
+Please refer to the issue list available [here](https://github.com/nainisha-b/MyExpenseBot/issues) to see what more can be done to make MyExpenseBot better. Please refer to the MyExpense project present [here](https://github.com/users/nainisha-b/projects/1) to have a look at the tasks to be done, tasks currently in progress and tasks already done.
 
 
 ## Demo
 
-https://user-images.githubusercontent.com/72677919/140454147-f879010a-173b-47b9-9cfb-a389171924de.mp4
+https://www.youtube.com/watch?v=BCTuqfJO7S0
 
 ## Installation guide
 
@@ -77,7 +78,7 @@ The below instructions can be followed in order to set-up this bot at your end i
 ```
 Follow the instructions on screen and choose a name for your bot. After this, select a username for your bot that ends with "bot".
 
-4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use.
+4. BotFather will now confirm the creation of your bot and provide a TOKEN to access the HTTP API - copy and save this token for future use and update this token in the user.properties file to connect this project to the telegram bot.
 
 5. In the directory where this repo has been cloned, please run the below command to execute a bash script to run the Telegram Bot:
 ```
@@ -96,7 +97,7 @@ A successful run will generate a message on your terminal that says "TeleBot: St
 
 We use pytest to perform testing on all unit tests together. The command needs to be run from the home directory of the project. The command is:
 ```
-python run -m pytest test/
+python -m pytest test/
 ```
 
 ## Code Coverage
@@ -115,9 +116,10 @@ You can download and install the Telegram desktop application for your system fr
 
 
 <hr>
-<p>Title:'Track My Dollar'</p>
-<p>Version: '3.1'</p>
-<p>Description: 'An easy to use Telegram Bot to track everyday expenses'</p>
+<p>Title:'Track My Income and Expense'</p>
+<p>Version: '4.1'</p>
+<p>Description: 'An easy to use Telegram Bot to track everyday income and expenses'</p>
+<p>Authors(Iteration 4):'Anvitha, Nainisha, Vaishnavi'</p>
 <p>Authors(Iteration 3):'Vraj, Alex, Leo, Prithvish, Seeya'</p>
 <p>Authors(Iteration 2):'Athithya, Subramanian, Ashok, Zunaid, Rithik'</p>
 <p>Authors(Iteration 1):'Dev, Prakruthi, Radhika, Rohan, Sunidhi'</p>
